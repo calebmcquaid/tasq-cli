@@ -6,6 +6,11 @@ const inquirer = require('inquirer')
 const readline = require('readline')
 const currentTodos = []
 const completedTodos = []
+const menuOptions = [
+    "1. Add Todo", 
+    "2. Current Todos", 
+    "3. Delete Todos"
+]
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -18,6 +23,8 @@ function openApplication(){
 }
 
 rl.write(openApplication())
+
+
 
 // rl.question("Add a todo\n\n> ", todo => {
 //     currentTodos.push(todo)
@@ -57,14 +64,17 @@ function displayFormattedTodos(todoList) {
 
 function formatTodos(todoList) {
     const formattedTodos = todoList.map((todo, index) => {
-    
-      return chalk.green(numberTodos(todo, index))
+        chalk.green(numberTodos(todo, index))
     })
     return formattedTodos
 }
 
 function numberTodos(todo, index) {
   return `${index + 1}. ${todo}\n`
+}
+
+function selectMenuOption(input) {
+    return menuOptions.find(number => number.includes(input))
 }
 
 module.exports = {
@@ -75,5 +85,6 @@ module.exports = {
     completeTodo,
     displayFormattedTodos,
     formatTodos,
-    numberTodos
+    numberTodos,
+    selectMenuOption
 }

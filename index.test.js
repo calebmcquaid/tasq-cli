@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const { openApplication, closeApplication, saveTodo, deleteTodo, completeTodo, displayFormattedTodos, formatTodos, numberTodos } = require('./index.js')
+const { openApplication, closeApplication, saveTodo, deleteTodo, completeTodo, displayFormattedTodos, formatTodos, numberTodos, selectMenuOption } = require('./index.js')
 
 describe("CLI Display", () => {
     test("should display a welcome message after the application is started", () => {
@@ -99,7 +99,7 @@ describe("CLI Functionality", () => {
 
     test("should give you selectable menu options for what to do", () => {
         const options = ["1. Add Todo", "2. Current Todos", "Delete Todos"]
-        const input = 2
+        const input = "Current"
 
         const chosenOption = selectMenuOption(input)
 
