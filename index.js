@@ -4,10 +4,9 @@ const chalk = require('chalk');
 const inquirer = require('inquirer')
 
 const readline = require('readline')
-const currentTodos = ['todo 1', 'todo 2', 'todo 3']
+const currentTodos = []
 const completedTodos = []
 
-console.log(process.argv)
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -15,7 +14,7 @@ const rl = readline.createInterface({
 
 function openApplication(){
     const greeting = "Welcome to the todo list\n"
-    console.log(greeting)
+    return greeting
 }
 
 rl.write(openApplication())
@@ -26,32 +25,6 @@ rl.write(openApplication())
 //     console.log("\nAwesome! Now get to work")
 // })
 
-inquirer
-  .prompt([
-    {
-      type: 'list',
-      name: 'theme',
-      message: 'What do you want to do?',
-      choices: [
-        'Add a todo',
-        'Mark a todo as done',
-        'Delete todo\'s',
-        'Look at current todo\'s',
-        new inquirer.Separator(),
-      ],
-    },
-    {
-      type: 'input',
-      name: 'add-todo',
-      message: 'What do you need to do?\n>',
-      filter: function (val) {
-        return val.toLowerCase();
-      },
-    },
-  ])
-  .then((answers) => {
-    console.log(JSON.stringify(answers, null, '  '));
-  });
 
 
 function closeApplication() {
@@ -84,9 +57,14 @@ function displayFormattedTodos(todoList) {
 
 function formatTodos(todoList) {
     const formattedTodos = todoList.map((todo, index) => {
-        rl.write(chalk.green(`${index + 1}. ${todo}\n`))
+    
+      return chalk.green(numberTodos(todo, index))
     })
     return formattedTodos
+}
+
+function numberTodos(todo, index) {
+  return `${index + 1}. ${todo}\n`
 }
 
 module.exports = {
@@ -96,5 +74,6 @@ module.exports = {
     deleteTodo,
     completeTodo,
     displayFormattedTodos,
-    formatTodos
+    formatTodos,
+    numberTodos
 }

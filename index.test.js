@@ -1,9 +1,10 @@
-const { openApplication, closeApplication, saveTodo, deleteTodo, completeTodo, displayFormattedTodos, formatTodos } = require('./index.js')
+const chalk = require('chalk')
+const { openApplication, closeApplication, saveTodo, deleteTodo, completeTodo, displayFormattedTodos, formatTodos, numberTodos } = require('./index.js')
 
 describe("CLI Display", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const welcomeMessage = "Welcome to the todo list"
+        const welcomeMessage = "Welcome to the todo list\n"
     // ACT:
         const openApp = openApplication()
     // ASSERT:
@@ -21,12 +22,12 @@ describe("CLI Display", () => {
     })
 
     test("should display the tasks with numbers when content is available", () => {
-        const currentTodos = ["todo 1", "todo 2"]
-        const displayedTodos = ["1. todo 1", "2. todo 2"]
+        const currentTodos = "1. todo 1\n"
         
-        const showTodos = displayFormattedTodos(currentTodos)
-        
-        expect(showTodos).toStrictEqual(displayedTodos)
+        const formatCurrentTodos = numberTodos("todo 1", 0)
+
+
+        expect(formatCurrentTodos).toBe(currentTodos)
     })
 
     test("should display a message when there are no todos", () => {
@@ -49,13 +50,15 @@ describe("CLI Functionality", () => {
         expect(addTodo).toStrictEqual(currentTodos)
     })
     
-    test("should format the todos properly", () => {
+    test.skip("should format the todos properly", () => {
+        chalk.green = jest.fn()
+        const formattedTodos = ["1. todo 1\n", "2. todo 2\n"]
         const unformattedTodos = ["todo 1", "todo 2"]
-        const formattedTodos = ["1. todo 1", "2. todo 2"]
         
-        const numberedTodos = formatTodos(unformattedTodos)
-        
-        expect(numberedTodos).toStrictEqual(formattedTodos)
+        formatTodos(unformattedTodos)
+
+        expect(chalk.green).toBeCalledTimes(2)
+        expect(formatTodos(unformattedTodos)).toStrictEqual(formattedTodos)
     })
     
     test("should not accept empty todos on submit", () => {
@@ -86,6 +89,16 @@ describe("CLI Functionality", () => {
         expect(markTodoDone).toStrictEqual(["todo 1", "todo 2", "todo 3"])
     })
 })
+
+    test("should display a colorful message on the screen", () => {
+        chalk.green = jest.fn()
+        const expectedTodo = "1. hello\n, 2. next\n"
+        const mockTodos = ['hello', "next"]
+
+        formatTodos(mockTodos)
+        expect(chalk.green).toHaveBeenCalledTimes(2)
+    })
+
     test.skip("should allow you to enter a new todo given the 'new' command", () => {
 
     })
@@ -102,9 +115,6 @@ describe("CLI Functionality", () => {
         
     })
     
-    test.skip("", () => {
-        
-    })
     
     
     test.skip("should accept input in the command line when the user types", () => {
