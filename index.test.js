@@ -26,7 +26,6 @@ describe("CLI Display", () => {
         
         const formatCurrentTodos = numberTodos("todo 1", 0)
 
-
         expect(formatCurrentTodos).toBe(currentTodos)
     })
 
@@ -58,7 +57,7 @@ describe("CLI Functionality", () => {
         formatTodos(unformattedTodos)
 
         expect(chalk.green).toBeCalledTimes(2)
-        expect(formatTodos(unformattedTodos)).toStrictEqual(formattedTodos)
+        expect(formatTodos(unformattedTodos)).toBe(formattedTodos)
     })
     
     test("should not accept empty todos on submit", () => {
@@ -92,11 +91,19 @@ describe("CLI Functionality", () => {
 
     test("should display a colorful message on the screen", () => {
         chalk.green = jest.fn()
-        const expectedTodo = "1. hello\n, 2. next\n"
         const mockTodos = ['hello', "next"]
 
         formatTodos(mockTodos)
         expect(chalk.green).toHaveBeenCalledTimes(2)
+    })
+
+    test("should give you selectable menu options for what to do", () => {
+        const options = ["1. Add Todo", "2. Current Todos", "Delete Todos"]
+        const input = 2
+
+        const chosenOption = selectMenuOption(input)
+
+        expect(chosenOption).toBe(options[1])
     })
 
     test.skip("should allow you to enter a new todo given the 'new' command", () => {
@@ -114,8 +121,6 @@ describe("CLI Functionality", () => {
     test.skip("should open the email with the subject and body populated when the todos are shared", () => {
         
     })
-    
-    
     
     test.skip("should accept input in the command line when the user types", () => {
     
