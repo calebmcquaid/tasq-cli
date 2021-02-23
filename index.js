@@ -23,6 +23,9 @@ function openApplication(){
 }
 
 rl.write(openApplication())
+rl.question("What would you like to do?", answer => {
+    menuOptions(answer)
+})
 
 
 
@@ -64,7 +67,7 @@ function displayFormattedTodos(todoList) {
 
 function formatTodos(todoList) {
     const formattedTodos = todoList.map((todo, index) => {
-        chalk.green(numberTodos(todo, index))
+        return chalk.green(numberTodos(todo, index))
     })
     return formattedTodos
 }

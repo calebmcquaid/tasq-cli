@@ -49,15 +49,15 @@ describe("CLI Functionality", () => {
         expect(addTodo).toStrictEqual(currentTodos)
     })
     
-    test.skip("should format the todos properly", () => {
-        chalk.green = jest.fn()
-        const formattedTodos = ["1. todo 1\n", "2. todo 2\n"]
+    test("should format the todos properly", () => {
+        const expectedFormattedTodos = ["1. todo 1\n", "2. todo 2\n"]
+        chalk.green = jest.fn().mockReturnValueOnce("1. todo 1\n").mockReturnValueOnce("2. todo 2\n")
         const unformattedTodos = ["todo 1", "todo 2"]
         
-        formatTodos(unformattedTodos)
+        const formattedTodos = formatTodos(unformattedTodos)
 
         expect(chalk.green).toBeCalledTimes(2)
-        expect(formatTodos(unformattedTodos)).toBe(formattedTodos)
+        expect(formattedTodos).toStrictEqual(expectedFormattedTodos)
     })
     
     test("should not accept empty todos on submit", () => {
@@ -98,7 +98,7 @@ describe("CLI Functionality", () => {
     })
 
     test("should give you selectable menu options for what to do", () => {
-        const options = ["1. Add Todo", "2. Current Todos", "Delete Todos"]
+        const options = ["1. Add Todo", "2. Current Todos", "3. Delete Todos"]
         const input = "Current"
 
         const chosenOption = selectMenuOption(input)
