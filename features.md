@@ -16,7 +16,9 @@ As a cli user, I should be able to start and quit the application
  -it(should display a welcome message after the application is started) 
  -it(should gracefully quit the application when the "q" key is pressed)
 
-As a user, I should be able to input tasks into the cli -- INPUT
+As a user, I should be able to add a new task using the cli -- INPUT
+- it(should display a menu of options for the user to pick from)
+- it(should navigate to the "add task screen" when add menu number is pressed)
 -it(should accept input in the command line) -- Mock stdin
 -it(should save the input when the enter key is pressed)
 -it(should display the tasks when content is available)
