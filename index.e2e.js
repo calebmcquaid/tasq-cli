@@ -1,10 +1,12 @@
-const nixt = require('nixt')
+const path = require('path');
+const assert = require('assert');
+const { default: Joker } = require('@amilajack/joker');
 
-describe("Todo E2E", () => {
-    test("should run an end to end testw", (callback) => {
-        nixt()
-        .run("node ./index.js")
-        .stdout("Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:")
-        .end(callback)
-    })
-})
+describe('todo add', () => {
+    it('adds a new todo item', async () => {
+      await new Joker()
+      .run('node --version')
+      .stdout('v12.13.0')
+      .end();
+    });
+  });

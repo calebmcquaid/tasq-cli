@@ -1,1 +1,1 @@
-module.exports = {green: jest.fn()}
+module.exports = {green: jest.fn(), dim: jest.fn(), bold: jest.fn()}
