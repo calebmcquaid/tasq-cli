@@ -8,12 +8,12 @@ const {
 describe("Menu", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const welcomeMessage = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:"
+        process.stdout.write = jest.fn()
     // ACT:
-        const openApp = openApplication()
+        openApplication()
     // ASSERT:
         //expect function to return welcome message
-        expect(openApp).toBe(welcomeMessage)
+        expect(process.stdout.write).toBeCalledTimes(1)
     // ANNIHILATE!!
     })
     
@@ -57,12 +57,13 @@ describe("Add Task Screen", () => {
     })
 
     test("should navigate to main menu when ESC is pressed", () => {
+        process.stdout.write = jest.fn()
         const mainMenuScreen = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:"
         const escapeKey = 27
 
         const screen = addTask(escapeKey)
 
-        expect(screen).toBe(mainMenuScreen)
+        expect(process.stdout.write).toBeCalledTimes(1)
     })
     
 })

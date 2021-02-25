@@ -1,10 +1,17 @@
 #!/usr/bin/env node
-
+const process = require('process')
+const readline = require('readline');
 const ESCAPE_KEY = 27
+
+const { stdin, stdout } = process;
+const rl = readline.createInterface({ input: stdin, output: stdout });
+
+openApplication()
+rl.close();
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:"
-    return greeting
+    return process.stdout.write(greeting)
 }
 
 function navigateToMenuOption(input) {
