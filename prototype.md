@@ -60,3 +60,21 @@ Here are your current tasks:
 
 No tasks! Go to the add task menu to add another
 (Press esc to return to the main menu)
+
+----------------------------------------
+
+## Complete a task
+
+## Navigate to complete a task
+
+Nice work! Which task would you like to complete?
+(Enter the corresponding number to complete that task)
+
+## Display current tasks
+ (list of tasks)
+
+## Select a task to complete
+
+You want to complete task (task number)?
+--y - removes task from list
+--n - returns to list of tasks
