@@ -15,8 +15,13 @@ function openApplication() {
 }
 
 function navigateToMenuOption(input) {
-    return input == 1 ? "Press esc to return to the main menu\n\nWhat needs done? Press enter to add the task"
-    : "Not a valid menu option! (press enter)"
+    if(input == 1) {
+      return "Press esc to return to the main menu\n\nWhat needs done? Press enter to add the task"  
+    } else if(input == 2) {
+        return "Press esc to return to the main menu\n\nHere are your current tasks:"
+    } else {
+        return "Not a valid menu option! (press enter)"
+    }
 }
 
 function addTask (taskTitle) {

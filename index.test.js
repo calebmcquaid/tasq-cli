@@ -67,16 +67,16 @@ describe("Add Task Screen", () => {
     })
 })
 
-// describe("Current Tasks", () => {
-//     test("should navigate to 'current tasks' menu when proper key is pressed", () => {
-//         const currentTaskBanner = "Press esc to return to the main menu\n\nHere are your current tasks:"
-//         const input = 2
+describe("Current Tasks", () => {
+    test("should navigate to 'current tasks' menu when proper key is pressed", () => {
+        const currentTaskBanner = "Press esc to return to the main menu\n\nHere are your current tasks:"
+        const input = 2
 
-//         const currentTaskScreen = navigateToMenuOption(input)
+        const currentTaskScreen = navigateToMenuOption(input)
 
-//         expect(currentTaskScreen).toBe(currentTaskBanner)
-//     })
-// })
+        expect(currentTaskScreen).toBe(currentTaskBanner)
+    })
+})
 
 describe("CLI Display", () => {
     test.skip("should gracefully quit the application when the 'q' key is pressed", () => {
@@ -173,7 +173,7 @@ describe("CLI Functionality", () => {
     })
 
     test.skip("should allow you to enter a new todo given the 'new' command", () => {
-        
+
     })
     
     test.skip("should send a magic link when the user logs in", () => {
