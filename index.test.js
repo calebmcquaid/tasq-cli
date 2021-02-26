@@ -107,6 +107,15 @@ describe("Complete a task", () => {
 
         expect(screen).toBe(message)
     })
+
+    test("should display the current tasks", () => {
+        const currentTasks = ["hello", "todo 2", "hello again"]
+
+        const screen = displayCurrentTasks(currentTasks)
+
+        expect(screen).toBe(currentTasks)
+    })
+
 })
 
 describe("CLI Display", () => {
