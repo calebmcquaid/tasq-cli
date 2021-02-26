@@ -41,3 +41,22 @@ Great! We will add this to the list! (press enter to add another task)
 ## Getting back to the menu
 
 Press esc to return to the main menu
+
+----------------------------------------------------------------------
+
+## See Current Tasks
+
+Here are your current tasks:
+
+------------
+
+## Display Current Tasks
+
+(List of tasks)
+
+------------
+
+## No tasks on the list
+
+No tasks! Go to the add task menu to add another
+(Press esc to return to the main menu)

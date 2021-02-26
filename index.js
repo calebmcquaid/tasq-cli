@@ -10,7 +10,7 @@ openApplication()
 rl.close();
 
 function openApplication() {
-    const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:"
+    const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
     return process.stdout.write(greeting)
 }
 

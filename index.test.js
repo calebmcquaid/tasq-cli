@@ -9,11 +9,12 @@ describe("Menu", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
         process.stdout.write = jest.fn()
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
     // ACT:
         openApplication()
     // ASSERT:
         //expect function to return welcome message
-        expect(process.stdout.write).toBeCalledTimes(1)
+        expect(process.stdout.write).toBeCalledWith(greeting)
     // ANNIHILATE!!
     })
     
@@ -58,15 +59,24 @@ describe("Add Task Screen", () => {
 
     test("should navigate to main menu when ESC is pressed", () => {
         process.stdout.write = jest.fn()
-        const mainMenuScreen = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n\nPress a number to continue:"
         const escapeKey = 27
 
-        const screen = addTask(escapeKey)
+        addTask(escapeKey)
 
         expect(process.stdout.write).toBeCalledTimes(1)
     })
-    
 })
+
+// describe("Current Tasks", () => {
+//     test("should navigate to 'current tasks' menu when proper key is pressed", () => {
+//         const currentTaskBanner = "Press esc to return to the main menu\n\nHere are your current tasks:"
+//         const input = 2
+
+//         const currentTaskScreen = navigateToMenuOption(input)
+
+//         expect(currentTaskScreen).toBe(currentTaskBanner)
+//     })
+// })
 
 describe("CLI Display", () => {
     test.skip("should gracefully quit the application when the 'q' key is pressed", () => {
@@ -163,7 +173,7 @@ describe("CLI Functionality", () => {
     })
 
     test.skip("should allow you to enter a new todo given the 'new' command", () => {
-
+        
     })
     
     test.skip("should send a magic link when the user logs in", () => {
