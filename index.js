@@ -11,7 +11,7 @@ rl.close();
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
-    return process.stdout.write(greeting)
+    return greeting
 }
 
 function navigateToMenuOption(input) {
@@ -34,8 +34,13 @@ function addTask (taskTitle) {
     return "Please add a real task! (press enter)"
 }
 
+function displayCurrentTasks(tasks) {
+    return tasks
+}
+
 module.exports = {
     openApplication,
     navigateToMenuOption,
-    addTask
+    addTask,
+    displayCurrentTasks
 }

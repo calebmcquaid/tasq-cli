@@ -1,20 +1,24 @@
 const chalk = require('chalk')
+const readline = require('readline')
+const { stdout, stdin } = require('process')
+
 const { 
     openApplication, 
     navigateToMenuOption,
-    addTask
+    addTask,
+    displayCurrentTasks
 } = require('./index.js')
+
 
 describe("Menu", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        process.stdout.write = jest.fn()
         const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
     // ACT:
-        openApplication()
+        const screen = openApplication(greeting)
     // ASSERT:
         //expect function to return welcome message
-        expect(process.stdout.write).toBeCalledWith(greeting)
+        expect(screen).toBe(greeting)
     // ANNIHILATE!!
     })
     
@@ -58,12 +62,12 @@ describe("Add Task Screen", () => {
     })
 
     test("should navigate to main menu when ESC is pressed", () => {
-        process.stdout.write = jest.fn()
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
         const escapeKey = 27
 
-        addTask(escapeKey)
+        const screen = addTask(escapeKey)
 
-        expect(process.stdout.write).toBeCalledTimes(1)
+        expect(screen).toBe(greeting)
     })
 })
 
@@ -75,6 +79,14 @@ describe("Current Tasks", () => {
         const currentTaskScreen = navigateToMenuOption(input)
 
         expect(currentTaskScreen).toBe(currentTaskBanner)
+    })
+
+    test("should display current tasks", () => {
+        const currentTasks = ["task 1", "mow the lawn"]
+
+        const screen = displayCurrentTasks(currentTasks)
+
+        expect(screen).toBe(currentTasks)
     })
 })
 
