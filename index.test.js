@@ -88,6 +88,25 @@ describe("Current Tasks", () => {
 
         expect(screen).toBe(currentTasks)
     })
+    test("should display message when there are no tasks", () => {
+        const currentTasks = []
+        const message = "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
+
+        const screen = displayCurrentTasks(currentTasks)
+
+        expect(screen).toBe(message)
+    })
+})
+
+describe("Complete a task", () => {
+    test("should navigate to 'complete a task' when the proper key is pressed", () => {
+        const input = 3
+        const message = "Nice work! Which task would you like to complete?\n(Enter the corresponding number to complete that task)"
+
+        const screen = navigateToMenuOption(input)
+
+        expect(screen).toBe(message)
+    })
 })
 
 describe("CLI Display", () => {

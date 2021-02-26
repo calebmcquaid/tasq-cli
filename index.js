@@ -19,8 +19,10 @@ function navigateToMenuOption(input) {
       return "Press esc to return to the main menu\n\nWhat needs done? Press enter to add the task"  
     } else if(input == 2) {
         return "Press esc to return to the main menu\n\nHere are your current tasks:"
+    } else if(input == 3) {
+        return "Nice work! Which task would you like to complete?\n(Enter the corresponding number to complete that task)"
     } else {
-        return "Not a valid menu option! (press enter)"
+    return "Not a valid menu option! (press enter)"
     }
 }
 
@@ -35,7 +37,7 @@ function addTask (taskTitle) {
 }
 
 function displayCurrentTasks(tasks) {
-    return tasks
+    return tasks.length ? tasks : "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
 }
 
 module.exports = {
