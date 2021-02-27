@@ -7,7 +7,8 @@ const {
     navigateToMenuOption,
     addTask,
     displayCurrentTasks,
-    confirmTaskComplete
+    confirmTaskComplete,
+    completeTask
 } = require('./index.js')
 
 
@@ -122,10 +123,29 @@ describe("Complete a task", () => {
         const input = 1
         const confirmMessage = `You want to complete the following task? ${currentTasks[input - 1]}`
 
-
         const screen = confirmTaskComplete(currentTasks, input)
 
         expect(screen).toBe(confirmMessage)
+    })
+
+    test("should give the complete the test when given the 'y' input", () => {
+        const input = 'y'
+        const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
+        const completeMessage = "That task was completed"
+
+        const screen = completeTask(input, currentTasks)
+    })
+
+    test("should remove task from list of tasks when given the 'y' input", () => {
+        const input = 'y'
+        const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
+        const removedTask = ["2. todo 2", "3. Mow the lawn"]
+        const task = 1
+
+        const screen = completeTask(input, currentTasks, task)
+
+        expect(screen).toStrictEqual(removedTask)
+
     })
 })
 

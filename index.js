@@ -42,6 +42,14 @@ function displayCurrentTasks(tasks) {
 
 function confirmTaskComplete(taskList, task) {
     return `You want to complete the following task? ${taskList[task - 1]}`
+
+}
+
+function completeTask(input, taskList, task) {
+    if (input == 'y') {
+        taskList.splice(taskList[task - 1], 1)
+    }
+    return taskList
 }
 
 module.exports = {
@@ -49,5 +57,6 @@ module.exports = {
     navigateToMenuOption,
     addTask,
     displayCurrentTasks,
-    confirmTaskComplete
+    confirmTaskComplete,
+    completeTask
 }
