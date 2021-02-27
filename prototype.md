@@ -76,5 +76,8 @@ Nice work! Which task would you like to complete?
 ## Select a task to complete
 
 You want to complete task (task number)?
+
+## Confirm completion of task
+
 --y - removes task from list
 --n - returns to list of tasks

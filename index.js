@@ -40,9 +40,14 @@ function displayCurrentTasks(tasks) {
     return tasks.length ? tasks : "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
 }
 
+function confirmTaskComplete(taskList, task) {
+    return `You want to complete the following task? ${taskList[task - 1]}`
+}
+
 module.exports = {
     openApplication,
     navigateToMenuOption,
     addTask,
-    displayCurrentTasks
+    displayCurrentTasks,
+    confirmTaskComplete
 }

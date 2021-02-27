@@ -6,7 +6,8 @@ const {
     openApplication, 
     navigateToMenuOption,
     addTask,
-    displayCurrentTasks
+    displayCurrentTasks,
+    confirmTaskComplete
 } = require('./index.js')
 
 
@@ -116,6 +117,16 @@ describe("Complete a task", () => {
         expect(screen).toBe(currentTasks)
     })
 
+    test("should return a confirmation of the correct task to complete", () => {
+        const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
+        const input = 1
+        const confirmMessage = `You want to complete the following task? ${currentTasks[input - 1]}`
+
+
+        const screen = confirmTaskComplete(currentTasks, input)
+
+        expect(screen).toBe(confirmMessage)
+    })
 })
 
 describe("CLI Display", () => {
