@@ -11,7 +11,9 @@ const {
     completeTask,
     numberTodos,
     capitlizeTodos,
-    addNewLine
+    addNewLine,
+    stripTaskNumbers,
+    displayCompletedTodos
 } = require('./index.js')
 
 
@@ -143,6 +145,26 @@ describe("Complete a task", () => {
     })
 })
 
+describe("Completed Tasks", () => {
+    test("should navigate to 'See Completed Tasks' when proper input is pressed", () => {
+        const input = 4
+        const message = "Here's everything you've completed so far:\n"
+
+        const screen = navigateToMenuOption(input)
+
+        expect(screen).toBe(message)
+    })
+
+    test("should display completed tasks", () => {
+        const completedTodos = ["Mow the lawn", "Todo"]
+        const displayedTodos = "Mow the lawn\nTodo\nPress esc to return to the main menu\n"
+
+        const screen = displayCompletedTodos(completedTodos)
+
+        expect(screen).toBe(displayedTodos)
+    })
+})
+
 describe("Formatting", () => {
     test("should number the tasks in order", () => {
         const unformattedTodos = ["Mow the lawn", "Todo 2", "Last todo"]
@@ -169,6 +191,14 @@ describe("Formatting", () => {
         const screen = addNewLine(sameLineTodos)
 
         expect(screen).toStrictEqual(oneLineTodos)
+    })
+    test("should strip numbers on completion", () => {
+        const numberedTodos = ["1. Todo", "2. Todos"]
+        const unnumberedTodos = ["Todo", "Todos"]
+
+        const screen = stripTaskNumbers(numberedTodos)
+
+        expect(screen).toStrictEqual(unnumberedTodos)
     })
 })
 

@@ -38,6 +38,10 @@ Tasks should have their own lines
 
 ----------
 
+## Strip out number on completion
+
+Tasks should not have numbers after they are completed
+(i.e. 1. Mow the lawn --> Mow the lawn)
 ## Add a task
 
 > Press esc to return to the main menu

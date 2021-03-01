@@ -21,6 +21,8 @@ function navigateToMenuOption(input) {
         return "Press esc to return to the main menu\n\nHere are your current tasks:"
     } else if(input == 3) {
         return "Nice work! Which task would you like to complete?\n(Enter the corresponding number to complete that task)"
+    } else if(input == 4) {
+        return "Here's everything you've completed so far:\n"
     } else {
     return "Not a valid menu option! (press enter)"
     }
@@ -53,6 +55,11 @@ function completeTask(input, taskList, task) {
     return taskList
 }
 
+function displayCompletedTodos(todos) {
+    todos = addNewLine(todos).join('')
+    return todos + "Press esc to return to the main menu\n"
+}
+
 function numberTodos(todos) {
     return todos.map((todo, index) => {
         return `${index + 1}. ${todo}`
@@ -71,6 +78,12 @@ function addNewLine(todos) {
     })
 }
 
+function stripTaskNumbers(todos) {
+    return todos.map((todo) => {
+        return todo.substring(3)
+    })
+}
+
 module.exports = {
     openApplication,
     navigateToMenuOption,
@@ -80,5 +93,7 @@ module.exports = {
     completeTask,
     numberTodos,
     capitlizeTodos,
-    addNewLine
+    addNewLine,
+    stripTaskNumbers,
+    displayCompletedTodos
 }
