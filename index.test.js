@@ -18,7 +18,7 @@ const {
 describe("Menu", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
     // ACT:
         const screen = openApplication(greeting)
     // ASSERT:
@@ -67,7 +67,7 @@ describe("Add Task Screen", () => {
     })
 
     test("should navigate to main menu when ESC is pressed", () => {
-        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n\nPress a number to continue:"
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
         const escapeKey = 27
 
         const screen = addTask(escapeKey)

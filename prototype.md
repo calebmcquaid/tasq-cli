@@ -3,9 +3,10 @@
 Welcome to the tasklist! Here's what you can do:
 1. Add a task
 2. See Current tasks
-3. Complete a tasks
-4. Archive a task
-5. Share your task list
+3. Complete tasks
+4. See Completed Tasks
+5. Archive a task
+6. Share your task list
 
 Press a number to continue:
 
@@ -93,11 +94,19 @@ Nice work! Which task would you like to complete?
 ## Display current tasks
  (list of tasks)
 
+---------
+
 ## Select a task to complete
 
 You want to complete task (task number)?
+
+---------
 
 ## Confirm completion of task
 
 --y - removes task from list
 --n - returns to list of tasks
+
+---------
+
+## Move completed task to completed list
