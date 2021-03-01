@@ -13,7 +13,8 @@ const {
     capitlizeTodos,
     addNewLine,
     stripTaskNumbers,
-    displayCompletedTodos
+    displayCompletedTodos,
+    returnToMainMenu
 } = require('./index.js')
 
 
@@ -45,6 +46,15 @@ describe("Menu", () => {
         const screen = navigateToMenuOption(input)
 
         expect(screen).toBe(expectedOuput)
+    })
+    
+    test("should return to the main menu when the escape key is pressed", () => {
+        const escapeKey = 27
+        const mainMenuGreeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
+
+        const screen = returnToMainMenu(escapeKey)
+
+        expect(screen).toBe(mainMenuGreeting)
     })
 })
 

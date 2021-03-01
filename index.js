@@ -28,6 +28,12 @@ function navigateToMenuOption(input) {
     }
 }
 
+function returnToMainMenu(input) {
+    if(input == ESCAPE_KEY) {
+        return openApplication()
+    }
+}
+
 function addTask (taskTitle) {
     if (taskTitle == ESCAPE_KEY) {
         return openApplication()
@@ -95,5 +101,6 @@ module.exports = {
     capitlizeTodos,
     addNewLine,
     stripTaskNumbers,
-    displayCompletedTodos
+    displayCompletedTodos,
+    returnToMainMenu
 }
