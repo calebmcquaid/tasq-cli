@@ -53,6 +53,11 @@ function completeTask(input, taskList, task) {
     return taskList
 }
 
+function formatTodos(unformattedTodos) {
+    return unformattedTodos.map((todo, index) => {
+        return `${index + 1}. ${todo}`
+    }) 
+}
 
 module.exports = {
     openApplication,
@@ -60,5 +65,6 @@ module.exports = {
     addTask,
     displayCurrentTasks,
     confirmTaskComplete,
-    completeTask
+    completeTask,
+    formatTodos
 }

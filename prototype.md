@@ -17,6 +17,13 @@ Not a valid menu option! (press enter)
 
 -----------
 
+## Formatting
+
+Tasks should be numbered in order
+(i.e. 1. Do a task)
+
+-----------
+
 ## Add a task
 
 > Press esc to return to the main menu

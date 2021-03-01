@@ -9,6 +9,7 @@ const {
     displayCurrentTasks,
     confirmTaskComplete,
     completeTask,
+    formatTodos
 } = require('./index.js')
 
 
@@ -137,6 +138,17 @@ describe("Complete a task", () => {
         const screen = completeTask(input, currentTasks, task)
 
         expect(screen).toStrictEqual(removedTask)
+    })
+})
+
+describe("Formatting", () => {
+    test("should number the tasks in order", () => {
+        const unformattedTodos = ["Mow the lawn", "Todo 2", "Last todo"]
+        const formattedTodos = ["1. Mow the lawn", "2. Todo 2", "3. Last todo"]
+
+        const screen = formatTodos(unformattedTodos)
+
+        expect(screen).toStrictEqual(formattedTodos)
     })
 })
 
