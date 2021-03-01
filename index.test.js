@@ -8,7 +8,7 @@ const {
     addTask,
     displayCurrentTasks,
     confirmTaskComplete,
-    completeTask
+    completeTask,
 } = require('./index.js')
 
 
@@ -128,14 +128,6 @@ describe("Complete a task", () => {
         expect(screen).toBe(confirmMessage)
     })
 
-    test("should give the complete the test when given the 'y' input", () => {
-        const input = 'y'
-        const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
-        const completeMessage = "That task was completed"
-
-        const screen = completeTask(input, currentTasks)
-    })
-
     test("should remove task from list of tasks when given the 'y' input", () => {
         const input = 'y'
         const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
@@ -145,7 +137,6 @@ describe("Complete a task", () => {
         const screen = completeTask(input, currentTasks, task)
 
         expect(screen).toStrictEqual(removedTask)
-
     })
 })
 

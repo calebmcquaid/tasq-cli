@@ -47,10 +47,12 @@ function confirmTaskComplete(taskList, task) {
 
 function completeTask(input, taskList, task) {
     if (input == 'y') {
+        console.log("That task was completed")
         taskList.splice(taskList[task - 1], 1)
     }
     return taskList
 }
+
 
 module.exports = {
     openApplication,
