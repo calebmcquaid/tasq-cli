@@ -53,8 +53,8 @@ function completeTask(input, taskList, task) {
     return taskList
 }
 
-function numberTodos(unformattedTodos) {
-    return unformattedTodos.map((todo, index) => {
+function numberTodos(todos) {
+    return todos.map((todo, index) => {
         return `${index + 1}. ${todo}`
     }) 
 }
@@ -62,6 +62,12 @@ function numberTodos(unformattedTodos) {
 function capitlizeTodos(todos) {
     return todos.map((todo) => {
         return todo.charAt(0).toUpperCase() + todo.substring(1)
+    })
+}
+
+function addNewLine(todos) {
+    return todos.map((todo) => {
+        return `${todo}\n`
     })
 }
 
@@ -73,5 +79,6 @@ module.exports = {
     confirmTaskComplete,
     completeTask,
     numberTodos,
-    capitlizeTodos
+    capitlizeTodos,
+    addNewLine
 }

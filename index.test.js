@@ -10,7 +10,8 @@ const {
     confirmTaskComplete,
     completeTask,
     numberTodos,
-    capitlizeTodos
+    capitlizeTodos,
+    addNewLine
 } = require('./index.js')
 
 
@@ -159,6 +160,15 @@ describe("Formatting", () => {
         const screen = capitlizeTodos(lowercaseTodos)
 
         expect(screen).toStrictEqual(uppercaseTodos)
+    })
+
+    test("should have their own line", () => {
+        const sameLineTodos = ["Todo 1", "todo 2", "todo 3"]
+        const oneLineTodos = ["Todo 1\n", "todo 2\n", "todo 3\n"]
+
+        const screen = addNewLine(sameLineTodos)
+
+        expect(screen).toStrictEqual(oneLineTodos)
     })
 })
 

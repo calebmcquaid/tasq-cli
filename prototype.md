@@ -29,6 +29,14 @@ Tasks should be numbered in order
 Tasks should have capital first letters
 (mow the lawn -->  Mow the lawn)
 
+----------
+
+## Spacing out tasks
+
+Tasks should have their own lines
+
+----------
+
 ## Add a task
 
 > Press esc to return to the main menu
