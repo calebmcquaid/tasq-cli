@@ -9,7 +9,8 @@ const {
     displayCurrentTasks,
     confirmTaskComplete,
     completeTask,
-    formatTodos
+    numberTodos,
+    capitlizeTodos
 } = require('./index.js')
 
 
@@ -146,9 +147,18 @@ describe("Formatting", () => {
         const unformattedTodos = ["Mow the lawn", "Todo 2", "Last todo"]
         const formattedTodos = ["1. Mow the lawn", "2. Todo 2", "3. Last todo"]
 
-        const screen = formatTodos(unformattedTodos)
+        const screen = numberTodos(unformattedTodos)
 
         expect(screen).toStrictEqual(formattedTodos)
+    })
+
+    test("should have a capital first letter", () => {
+        const lowercaseTodos = ["mow the lawn", "todo 2", "last todo"]
+        const uppercaseTodos = ["Mow the lawn", "Todo 2", "Last todo"]
+
+        const screen = capitlizeTodos(lowercaseTodos)
+
+        expect(screen).toStrictEqual(uppercaseTodos)
     })
 })
 
@@ -194,7 +204,7 @@ describe("CLI Functionality", () => {
         chalk.green = jest.fn().mockReturnValueOnce("1. todo 1\n").mockReturnValueOnce("2. todo 2\n")
         const unformattedTodos = ["todo 1", "todo 2"]
         
-        const formattedTodos = formatTodos(unformattedTodos)
+        const formattedTodos = numberTodos(unformattedTodos)
 
         expect(chalk.green).toBeCalledTimes(2)
         expect(formattedTodos).toStrictEqual(expectedFormattedTodos)
@@ -233,7 +243,7 @@ describe("CLI Functionality", () => {
         chalk.green = jest.fn()
         const mockTodos = ['hello', "next"]
 
-        formatTodos(mockTodos)
+        numberTodos(mockTodos)
         expect(chalk.green).toHaveBeenCalledTimes(2)
     })
 

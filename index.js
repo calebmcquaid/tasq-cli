@@ -53,10 +53,16 @@ function completeTask(input, taskList, task) {
     return taskList
 }
 
-function formatTodos(unformattedTodos) {
+function numberTodos(unformattedTodos) {
     return unformattedTodos.map((todo, index) => {
         return `${index + 1}. ${todo}`
     }) 
+}
+
+function capitlizeTodos(todos) {
+    return todos.map((todo) => {
+        return todo.charAt(0).toUpperCase() + todo.substring(1)
+    })
 }
 
 module.exports = {
@@ -66,5 +72,6 @@ module.exports = {
     displayCurrentTasks,
     confirmTaskComplete,
     completeTask,
-    formatTodos
+    numberTodos,
+    capitlizeTodos
 }

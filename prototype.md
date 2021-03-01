@@ -17,12 +17,17 @@ Not a valid menu option! (press enter)
 
 -----------
 
-## Formatting
+## Numbering Formatting
 
 Tasks should be numbered in order
 (i.e. 1. Do a task)
 
 -----------
+
+## Capitalizing Tasks
+
+Tasks should have capital first letters
+(mow the lawn -->  Mow the lawn)
 
 ## Add a task
 
