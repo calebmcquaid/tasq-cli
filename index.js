@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const process = require('process')
 const readline = require('readline');
+const {addNewLine} = require('./shared/formatting')
 const ESCAPE_KEY = 27
 
 const { stdin, stdout } = process;
@@ -66,29 +67,7 @@ function displayCompletedTodos(todos) {
     return todos + "Press esc to return to the main menu\n"
 }
 
-function numberTodos(todos) {
-    return todos.map((todo, index) => {
-        return `${index + 1}. ${todo}`
-    }) 
-}
 
-function capitlizeTodos(todos) {
-    return todos.map((todo) => {
-        return todo.charAt(0).toUpperCase() + todo.substring(1)
-    })
-}
-
-function addNewLine(todos) {
-    return todos.map((todo) => {
-        return `${todo}\n`
-    })
-}
-
-function stripTaskNumbers(todos) {
-    return todos.map((todo) => {
-        return todo.substring(3)
-    })
-}
 
 module.exports = {
     openApplication,
@@ -97,10 +76,6 @@ module.exports = {
     displayCurrentTasks,
     confirmTaskComplete,
     completeTask,
-    numberTodos,
-    capitlizeTodos,
-    addNewLine,
-    stripTaskNumbers,
     displayCompletedTodos,
     returnToMainMenu
 }
