@@ -113,4 +113,6 @@ You want to complete task (task number)?
 
 ---------
 
-## Move completed task to completed list
+## Move current task to completed list
+
+Show current and completed tasks

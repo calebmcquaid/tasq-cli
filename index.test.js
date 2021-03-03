@@ -142,13 +142,22 @@ describe("Complete a task", () => {
     test("should remove task from list of tasks when given the 'y' input", () => {
         const input = 'y'
         const currentTasks = ["1. hello", "2. todo 2", "3. Mow the lawn"]
-        const removedTask = ["2. todo 2", "3. Mow the lawn"]
+        const updatedCurrentTasks = ["2. todo 2", "3. Mow the lawn"]
         const task = 1
 
         const screen = completeTask(input, currentTasks, task)
 
-        expect(screen).toStrictEqual(removedTask)
+        expect(screen).toStrictEqual(updatedCurrentTasks)
     })
+
+    // test("should move completed task from current to completed", () => {
+    //     const completedTask = "Hello"
+    //     const completedList = []
+
+    //     const screen = moveCompletedTask(completedTask, completedList)
+
+    //     expect(completedList.length).toBe(1)
+    // })
 })
 
 describe("Completed Tasks", () => {
@@ -171,117 +180,3 @@ describe("Completed Tasks", () => {
     })
 })
 
-
-describe("CLI Display", () => {
-    test.skip("should gracefully quit the application when the 'q' key is pressed", () => {
-        const goodbyeMessage = "So long!"
-
-        const runningFunction = closeApplication()
-
-        expect(runningFunction).toBe(goodbyeMessage) 
-    })
-
-    test.skip("should display the tasks with numbers when content is available", () => {
-        const currentTodos = "1. todo 1\n"
-        
-        const formatCurrentTodos = numberTodos("todo 1", 0)
-
-        expect(formatCurrentTodos).toBe(currentTodos)
-    })
-
-    test.skip("should display a message when there are no todos", () => {
-        const currentTodos = []
-        const message = "No todos! Add a todo or take it easy!"
-        
-        const noTodos = displayFormattedTodos(currentTodos)
-        
-        expect(noTodos).toBe(message)
-    })
-})
-
-describe("CLI Functionality", () => {
-    test.skip("should save the input when the enter key is pressed", () => {
-        const newTodo = "new todo"
-        const currentTodos = ["new todo"]
-        
-        const addTodo = saveTodo(newTodo)
-        
-        expect(addTodo).toStrictEqual(currentTodos)
-    })
-    
-    test.skip("should format the todos properly", () => {
-        const expectedFormattedTodos = ["1. todo 1\n", "2. todo 2\n"]
-        chalk.green = jest.fn().mockReturnValueOnce("1. todo 1\n").mockReturnValueOnce("2. todo 2\n")
-        const unformattedTodos = ["todo 1", "todo 2"]
-        
-        const formattedTodos = numberTodos(unformattedTodos)
-
-        expect(chalk.green).toBeCalledTimes(2)
-        expect(formattedTodos).toStrictEqual(expectedFormattedTodos)
-    })
-    
-    test.skip("should not accept empty todos on submit", () => {
-        const emptyTodo = ""
-        const todoList = []
-        
-        const submitEmptyTodo = saveTodo(emptyTodo)
-        
-        expect(submitEmptyTodo).toBe("You can't submit an empty todo")
-        expect(todoList).toStrictEqual([])
-    })
-    
-    test.skip("should remove the todo from the inactive list when the todo is deleted", () => {
-        const completedTodos = ["todo number 1", "this is also a todo", "last todo"]
-        const removedTodo = ["todo number 1", "this is also a todo"]
-        
-        const removeTodo = deleteTodo(completedTodos, 2)
-        
-        expect(removeTodo).toStrictEqual(removedTodo)
-    })
-    
-    test.skip("should move the todo from the active list to the inactive list upon completion", () => {
-        const completedList = ["todo 1", "todo 2"]
-        const currentTodos = ["todo 3"]
-        
-        const markTodoDone = completeTodo(completedList, currentTodos, 0)
-        
-        expect(markTodoDone).toStrictEqual(["todo 1", "todo 2", "todo 3"])
-    })
-})
-
-    test.skip("should display a colorful message on the screen", () => {
-        chalk.green = jest.fn()
-        const mockTodos = ['hello', "next"]
-
-        numberTodos(mockTodos)
-        expect(chalk.green).toHaveBeenCalledTimes(2)
-    })
-
-    test.skip("should give you selectable menu options for what to do", () => {
-        const options = ["1. Add Todo", "2. Current Todos", "3. Delete Todos"]
-        const input = "Current"
-
-        const chosenOption = selectMenuOption(input)
-
-        expect(chosenOption).toBe(options[1])
-    })
-
-    test.skip("should allow you to enter a new todo given the 'new' command", () => {
-
-    })
-    
-    test.skip("should send a magic link when the user logs in", () => {
-        
-    })
-    
-    test.skip("should email the todo list when the user shares the todos", () => {
-        
-    })
-    
-    test.skip("should open the email with the subject and body populated when the todos are shared", () => {
-        
-    })
-    
-    test.skip("should accept input in the command line when the user types", () => {
-    
-    })

@@ -1,14 +1,13 @@
 #!/usr/bin/env node
+const { green } = require('chalk');
 const process = require('process')
 const readline = require('readline');
 const {addNewLine} = require('./shared/formatting')
 const ESCAPE_KEY = 27
+const completedTasks = []
 
 const { stdin, stdout } = process;
 const rl = readline.createInterface({ input: stdin, output: stdout });
-
-openApplication()
-rl.close();
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
@@ -54,12 +53,12 @@ function confirmTaskComplete(taskList, task) {
 
 }
 
-function completeTask(input, taskList, task) {
+function completeTask(input, currentTaskList, task) {
     if (input == 'y') {
-        console.log("That task was completed")
-        taskList.splice(taskList[task - 1], 1)
+        const completedTask = currentTaskList.splice(currentTaskList[task - 1], 1)
+        completedTasks.push(completedTask[0])
     }
-    return taskList
+    return currentTaskList
 }
 
 function displayCompletedTodos(todos) {
