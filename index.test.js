@@ -1,6 +1,7 @@
 const chalk = require('chalk')
 const readline = require('readline')
 const { stdout, stdin } = require('process')
+const fs = require('fs')
 
 const { 
     openApplication, 
@@ -11,7 +12,8 @@ const {
     completeTask,
     displayCompletedTodos,
     returnToMainMenu,
-    archiveTask
+    archiveTask,
+    createTaskTextFile
 } = require('./index.js')
 
 
@@ -189,6 +191,16 @@ describe("Share TaskList", () => {
         const screen = navigateToMenuOption(input)
 
         expect(screen).toBe(expectedGreeting)
+    })
+
+    test("should create a .txt file with tasks", () => {
+        fs.writeFile = jest.fn()
+        const currentTasks = ["1. Mow the lawn", "2. Todo"]
+        const expectedSuccess = "File created successfully"
+
+        createTaskTextFile(currentTasks)
+
+        expect(fs.writeFile).toBeCalledTimes(1) 
     })
 })
 

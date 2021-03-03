@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { green } = require('chalk');
+const fs = require('fs');
 const process = require('process')
 const readline = require('readline');
 const {addNewLine} = require('./shared/formatting')
@@ -8,6 +9,8 @@ const completedTasks = []
 
 const { stdin, stdout } = process;
 const rl = readline.createInterface({ input: stdin, output: stdout });
+
+createTaskTextFile(["Hello1", 2, "23"])
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
@@ -73,6 +76,16 @@ function archiveTask(completedTodos, input) {
     return completedTodos
 }
 
+function createTaskTextFile(currentTasks) {
+    
+    fs.writeFile("./test.txt", addNewLine(currentTasks), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+    });
+}
+
 module.exports = {
     openApplication,
     navigateToMenuOption,
@@ -82,5 +95,6 @@ module.exports = {
     completeTask,
     displayCompletedTodos,
     returnToMainMenu,
-    archiveTask
+    archiveTask,
+    createTaskTextFile
 }

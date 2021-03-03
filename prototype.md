@@ -126,3 +126,13 @@ Show current and completed tasks
 Who would you like to share your list with?
 
 ----------
+
+## Create sendable task list
+
+Create .txt file
+
+---------
+
+## Send .txt file
+
+Email file, "Successfully sent file!"
