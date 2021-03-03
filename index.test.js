@@ -2,6 +2,7 @@ const chalk = require('chalk')
 const readline = require('readline')
 const { stdout, stdin } = require('process')
 const fs = require('fs')
+const nodemailer = require('nodemailer')
 
 const { 
     openApplication, 
@@ -13,7 +14,8 @@ const {
     displayCompletedTodos,
     returnToMainMenu,
     archiveTask,
-    createTaskTextFile
+    createTaskTextFile,
+    sendEmail
 } = require('./index.js')
 
 
@@ -201,6 +203,15 @@ describe("Share TaskList", () => {
         createTaskTextFile(currentTasks)
 
         expect(fs.writeFile).toBeCalledTimes(1) 
+    })
+
+    test("should send email with tasks", () => {
+        nodemailer.createTransport.sendMail = jest.fn()
+        const successResponse = "Success!"
+
+        const screen = sendEmail()
+
+        expect(screen).toBe(successResponse)
     })
 })
 

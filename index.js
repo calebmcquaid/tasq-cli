@@ -4,13 +4,12 @@ const fs = require('fs');
 const process = require('process')
 const readline = require('readline');
 const {addNewLine} = require('./shared/formatting')
+const nodemailer = require('nodemailer')
 const ESCAPE_KEY = 27
 const completedTasks = []
 
 const { stdin, stdout } = process;
 const rl = readline.createInterface({ input: stdin, output: stdout });
-
-createTaskTextFile(["Hello1", 2, "23"])
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
@@ -85,6 +84,26 @@ function createTaskTextFile(currentTasks) {
         console.log("The file was saved!");
     });
 }
+function sendEmail() { 
+    let transporter = nodemailer.createTransport({
+        service: 'SendPulse', // no need to set host or port etc.
+        auth: {
+            user: 'calebmcquaid@gmail.com',
+            pass: 'QoWCoaXKYW'
+        }
+    });
+    
+    var message = {
+        from: "caleb@enok.co",
+        to: "calebmcquaid@gmail.com",
+        subject: "Message title",
+        text: "Plaintext version of the message",
+        html: "<p>HTML version of the message</p>"
+    };
+    
+    transporter.sendMail(message)
+    return "Success!"
+}
 
 module.exports = {
     openApplication,
@@ -96,5 +115,6 @@ module.exports = {
     displayCompletedTodos,
     returnToMainMenu,
     archiveTask,
-    createTaskTextFile
+    createTaskTextFile,
+    sendEmail
 }
