@@ -102,7 +102,7 @@ function sendEmail() {
     };
     
     transporter.sendMail(message)
-    return "Success!"
+    return "Successfully sent file!"
 }
 
 module.exports = {

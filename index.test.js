@@ -207,7 +207,7 @@ describe("Share TaskList", () => {
 
     test("should send email with tasks", () => {
         nodemailer.createTransport.sendMail = jest.fn()
-        const successResponse = "Success!"
+        const successResponse = "Successfully sent file!"
 
         const screen = sendEmail()
 
