@@ -53,7 +53,7 @@ function displayCurrentTasks(tasks) {
 }
 
 function confirmTaskComplete(taskList, task) {
-    return `You want to complete the following task? ${taskList[task - 1]}`
+    return `You want to complete the following task? ${taskList[task - 1]} (Press 'y' to complete, press any other key to return to the tasks)`
 
 }
 
