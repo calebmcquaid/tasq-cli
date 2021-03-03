@@ -66,7 +66,10 @@ function displayCompletedTodos(todos) {
     return todos + "Press esc to return to the main menu\n"
 }
 
-
+function archiveTask(completedTodos, input) {
+    completedTodos.splice(completedTodos[input - 1], 1)
+    return completedTodos
+}
 
 module.exports = {
     openApplication,
@@ -76,5 +79,6 @@ module.exports = {
     confirmTaskComplete,
     completeTask,
     displayCompletedTodos,
-    returnToMainMenu
+    returnToMainMenu,
+    archiveTask
 }

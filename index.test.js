@@ -10,7 +10,8 @@ const {
     confirmTaskComplete,
     completeTask,
     displayCompletedTodos,
-    returnToMainMenu
+    returnToMainMenu,
+    archiveTask
 } = require('./index.js')
 
 
@@ -149,15 +150,6 @@ describe("Complete a task", () => {
 
         expect(screen).toStrictEqual(updatedCurrentTasks)
     })
-
-    // test("should move completed task from current to completed", () => {
-    //     const completedTask = "Hello"
-    //     const completedList = []
-
-    //     const screen = moveCompletedTask(completedTask, completedList)
-
-    //     expect(completedList.length).toBe(1)
-    // })
 })
 
 describe("Completed Tasks", () => {
@@ -177,6 +169,15 @@ describe("Completed Tasks", () => {
         const screen = displayCompletedTodos(completedTodos)
 
         expect(screen).toBe(displayedTodos)
+    })
+
+    test("should completely delete tasks on archive", () => {
+        const completedTodos = ["1. Mow the lawn", "2. Todo"]
+        const input = 2
+
+        const screen = archiveTask(completedTodos, input)
+
+        expect(screen.length).toBe(1)
     })
 })
 
