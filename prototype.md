@@ -116,3 +116,13 @@ You want to complete task (task number)?
 ## Move current task to completed list
 
 Show current and completed tasks
+
+----------------------
+
+## Share your task list
+
+## Navigate to share your list
+
+Who would you like to share your list with?
+
+----------

@@ -23,6 +23,8 @@ function navigateToMenuOption(input) {
         return "Nice work! Which task would you like to complete?\n(Enter the corresponding number to complete that task)"
     } else if(input == 4) {
         return "Here's everything you've completed so far:\n"
+    } else if(input == 6) {
+        return "Where would you like to send your tasklist? (Please enter a valid email address)"
     } else {
     return "Not a valid menu option! (press enter)"
     }

@@ -181,3 +181,14 @@ describe("Completed Tasks", () => {
     })
 })
 
+describe("Share TaskList", () => {
+    test("should navigate to 'share tasklist' when proper input is pressed", () => {
+        const input = 6
+        const expectedGreeting = "Where would you like to send your tasklist? (Please enter a valid email address)"
+
+        const screen = navigateToMenuOption(input)
+
+        expect(screen).toBe(expectedGreeting)
+    })
+})
+
