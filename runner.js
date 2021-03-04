@@ -1,10 +1,3 @@
-function test() {
-    console.log("hello")
-}
+const { openApplication } = require(".")
 
-function another() {
-    console.log("again")
-}
-
-test()
-another()
+openApplication()
