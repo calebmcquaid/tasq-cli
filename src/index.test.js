@@ -215,7 +215,7 @@ describe("Share TaskList", () => {
         expect(fs.writeFile).toBeCalledTimes(1) 
     })
 
-    test("should send email with tasks", () => {
+    test.skip("should send email with tasks", () => {
         nodemailer.createTransport.sendMail = jest.fn()
         const successResponse = "Successfully sent file!"
 

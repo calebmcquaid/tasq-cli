@@ -13,7 +13,7 @@ const completedTasks = []
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
-    console.log(greeting)
+    return greeting
 }
 
 function navigateToMenuOption(input) {
