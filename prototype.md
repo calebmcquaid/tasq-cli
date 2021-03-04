@@ -136,3 +136,12 @@ Create .txt file
 ## Send .txt file
 
 Email file, "Successfully sent file!"
+
+----------------------------------------------------------
+## V2
+
+Menu change --> more like git help menu -- 'todo help'
+
+
+add task --> .txt file
+Add Command, e2e (check full flow to .txt), unit test for every step, 
