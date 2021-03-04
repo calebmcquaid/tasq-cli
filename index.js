@@ -8,12 +8,12 @@ const nodemailer = require('nodemailer')
 const ESCAPE_KEY = 27
 const completedTasks = []
 
-const { stdin, stdout } = process;
-const rl = readline.createInterface({ input: stdin, output: stdout });
+// const { stdin, stdout } = process;
+// const rl = readline.createInterface({ input: stdin, output: stdout });
 
 function openApplication() {
     const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
-    return greeting
+    console.log(greeting)
 }
 
 function navigateToMenuOption(input) {
@@ -84,26 +84,6 @@ function createTaskTextFile(currentTasks) {
         console.log("The file was saved!");
     });
 }
-function sendEmail() { 
-    let transporter = nodemailer.createTransport({
-        service: 'SendPulse', // no need to set host or port etc.
-        auth: {
-            user: 'calebmcquaid@gmail.com',
-            pass: 'QoWCoaXKYW'
-        }
-    });
-    
-    var message = {
-        from: "caleb@enok.co",
-        to: "calebmcquaid@gmail.com",
-        subject: "Message title",
-        text: "Plaintext version of the message",
-        html: "<p>HTML version of the message</p>"
-    };
-    
-    transporter.sendMail(message)
-    return "Successfully sent file!"
-}
 
 module.exports = {
     openApplication,
@@ -115,6 +95,5 @@ module.exports = {
     displayCompletedTodos,
     returnToMainMenu,
     archiveTask,
-    createTaskTextFile,
-    sendEmail
+    createTaskTextFile
 }
