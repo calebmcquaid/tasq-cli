@@ -38,62 +38,8 @@ function returnToMainMenu(input) {
     }
 }
 
-function addTask (taskTitle) {
-    if (taskTitle == ESCAPE_KEY) {
-        return openApplication()
-    }
-    else if(taskTitle) {
-        return "Great! We will add this to the list! (press enter to add another task)"
-    }
-    return "Please add a real task! (press enter)"
-}
-
-function displayCurrentTasks(tasks) {
-    return tasks.length ? tasks : "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
-}
-
-function confirmTaskComplete(taskList, task) {
-    return `You want to complete the following task? ${taskList[task - 1]} (Press 'y' to complete, press any other key to return to the tasks)`
-
-}
-
-function completeTask(input, currentTaskList, task) {
-    if (input == 'y') {
-        const completedTask = currentTaskList.splice(currentTaskList[task - 1], 1)
-        completedTasks.push(completedTask[0])
-    }
-    return currentTaskList
-}
-
-function displayCompletedTodos(todos) {
-    todos = addNewLine(todos).join('')
-    return todos + "Press esc to return to the main menu\n"
-}
-
-function archiveTask(completedTodos, input) {
-    completedTodos.splice(completedTodos[input - 1], 1)
-    return completedTodos
-}
-
-function createTaskTextFile(currentTasks) {
-    
-    fs.writeFile("./test.txt", addNewLine(currentTasks), function(err) {
-        if(err) {
-            return console.log(err);
-        }
-        console.log("The file was saved!");
-    });
-}
-
 module.exports = {
     openApplication,
     navigateToMenuOption,
-    addTask,
-    displayCurrentTasks,
-    confirmTaskComplete,
-    completeTask,
-    displayCompletedTodos,
-    returnToMainMenu,
-    archiveTask,
-    createTaskTextFile
+    returnToMainMenu
 }
