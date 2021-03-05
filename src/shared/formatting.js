@@ -13,13 +13,11 @@ function capitlizeTodos(todos) {
 }
 
 function addNewLine(todos) {
-    let mappedTodos = todos
-    if(Array.isArray(todos)) {
-        mappedTodos = todos.map((todo) => {
+    return Array.isArray(todos) ?
+        todos.map((todo) => {
             return `${todo}\n`
         })
-    }
-    return mappedTodos
+    : todos
 }
 
 function stripTaskNumbers(todos) {
