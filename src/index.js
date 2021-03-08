@@ -40,6 +40,8 @@ function returnToMainMenu(input) {
 function navigation(flag) {
     if(flag == "-help") {
         return "Help Menu"
+    } else {
+        return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task -help' for more information"
     }
 }
 

@@ -15,9 +15,9 @@ const {
 describe("Menu", () => {
     test("should display a welcome message after the application is started", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nPress a number to continue:"
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task -help' for more information"
     // ACT:
-        const screen = openApplication(greeting)
+        const screen = navigation()
     // ASSERT:
         //expect function to return welcome message
         expect(screen).toBe(greeting)
