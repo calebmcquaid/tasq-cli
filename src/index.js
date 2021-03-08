@@ -1,11 +1,21 @@
 #!/usr/bin/env node
 const { green } = require('chalk');
 const fs = require('fs');
+const path = require('path')
 const process = require('process')
 const readline = require('readline');
 const {addNewLine} = require('./shared/formatting')
 const ESCAPE_KEY = 27
 const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
+
+const currentTasks = fs.readFileSync(path.resolve(__dirname, "./shared/test.txt"), 'utf8', (err, data) => {
+    if(err) {
+        console.error(err)
+        return
+    }
+    return data
+})
+console.log(currentTasks)
 
 // const { stdin, stdout } = process;
 // const rl = readline.createInterface({ input: stdin, output: stdout });
@@ -40,6 +50,8 @@ function returnToMainMenu(input) {
 function navigation(flag) {
     if(flag == "-help") {
         return "Help Menu"
+    } else if(flag == "-current") {
+      return currentTasks  
     } else {
         return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task -help' for more information"
     }

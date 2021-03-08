@@ -24,13 +24,13 @@ describe("Menu", () => {
     // ANNIHILATE!!
     })
 
-    test("should navigate to 'current tasks' menu when proper key is pressed", () => {
-        const currentTaskBanner = "Press esc to return to the main menu\n\nHere are your current tasks:"
-        const input = 2
+    test("should display current tasks when given proper flag", () => {
+        const currentTaskFlag = '-current'
+        const currentTasks = "[\"task 1\", \"task 3\"]"
 
-        const currentTaskScreen = navigateToMenuOption(input)
+        const screen = navigation(currentTaskFlag)
 
-        expect(currentTaskScreen).toBe(currentTaskBanner)
+        expect(screen).toBe(currentTasks)
     })
 
     test("should navigate to 'complete a task' when the proper key is pressed", () => {
