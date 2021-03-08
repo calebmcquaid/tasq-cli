@@ -4,9 +4,8 @@ const fs = require('fs');
 const process = require('process')
 const readline = require('readline');
 const {addNewLine} = require('./shared/formatting')
-const nodemailer = require('nodemailer')
 const ESCAPE_KEY = 27
-const completedTasks = []
+const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
 
 // const { stdin, stdout } = process;
 // const rl = readline.createInterface({ input: stdin, output: stdout });
@@ -38,8 +37,15 @@ function returnToMainMenu(input) {
     }
 }
 
+function navigation(flag) {
+    if(flag == "-help") {
+        return "Help Menu"
+    }
+}
+
 module.exports = {
     openApplication,
     navigateToMenuOption,
-    returnToMainMenu
+    returnToMainMenu,
+    navigation
 }

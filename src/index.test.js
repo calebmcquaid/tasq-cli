@@ -8,7 +8,7 @@ const {
     openApplication, 
     navigateToMenuOption,
     returnToMainMenu,
-    sendEmail
+    navigation
 } = require('./index.js')
 
 
@@ -85,6 +85,17 @@ describe("Menu", () => {
         const screen = returnToMainMenu(escapeKey)
 
         expect(screen).toBe(mainMenuGreeting)
+    })
+})
+
+describe('Help', () => {
+    test("should return the help menu when given the proper flag", () => {
+        const flag = '-help'
+        const helpMenu = "Help Menu"
+
+        const screen = navigation(flag)
+
+        expect(screen).toBe(helpMenu)
     })
 })
 
