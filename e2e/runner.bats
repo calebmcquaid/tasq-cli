@@ -13,9 +13,12 @@ TEST_FILENAME="./e2e/test.txt"
   eval "add 'hello'"
   [[ "$status" -eq 0 ]]
 
-  eval "ls test.txt"
+  eval "ls ./src/shared/tasks.txt"
   [[ "$status" -eq 0 ]]
 
-  result="$(cat test.txt)"
+  eval "todo --current"
+  [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
+
+  result="$(cat ./src/shared/tasks.txt)"
   [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
 }
