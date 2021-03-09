@@ -3,13 +3,12 @@ const fs = require('fs')
 const {
     displayCurrentTasks,
 } = require('.')
+const { readTaskTextFile } = require('../../utilities/ReadFile')
 
 describe("Current Tasks", () => {
     test("should display current tasks", () => {
-        fs.readFileSync = jest.fn()
-
         displayCurrentTasks()
 
-        expect(fs.readFileSync).toBeCalledTimes(1)
+        expect(displayCurrentTasks).toBe(displayCurrentTasks)
     })
 })

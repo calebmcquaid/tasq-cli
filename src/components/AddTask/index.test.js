@@ -1,28 +1,8 @@
 
 const { ESCAPE_KEY } = require('../../shared/constants')
 const {
-    displayCurrentTasks,
     addTask,
 } = require('.')
-
-describe("Current Tasks", () => {
-    test("should display current tasks", () => {
-        const currentTasks = ["task 1", "mow the lawn"]
-
-        const screen = displayCurrentTasks(currentTasks)
-
-        expect(screen).toBe(currentTasks)
-    })
-
-    test("should display message when there are no tasks", () => {
-        const currentTasks = []
-        const message = "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
-
-        const screen = displayCurrentTasks(currentTasks)
-
-        expect(screen).toBe(message)
-    })
-})
 
 describe("Add Task Screen", () => {
     test("should display 'add task success' when a non-empty task is submitted", () => {

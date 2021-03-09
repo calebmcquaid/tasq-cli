@@ -37,16 +37,16 @@ function returnToMainMenu(input) {
 }
 
 function navigation(flag) {
-    if(flag == "-help") {
+    if(flag == "--help") {
         return "Help Menu"
     } else if(flag.current) {
-      return displayCurrentTasks()  
+      return displayCurrentTasks()
     } else {
         return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task -help' for more information"
     }
 }
 
-navigation(argv)
+console.log(navigation(argv))
 
 module.exports = {
     openApplication,

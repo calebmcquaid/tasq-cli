@@ -15,15 +15,9 @@ function addTask (taskTitle) {
     return "Please add a real task! (press enter)"
 }
 
-function displayCurrentTasks(tasks) {
-    return tasks.length ? tasks : "No tasks! Go to the add task menu to add another\n(Press esc to return to the main menu)"
-}
-
 addTask(argv)
 createTaskTextFile(argv._[0])
-console.log(argv._[0]);
 
 module.exports = {
-    addTask,
-    displayCurrentTasks
+    addTask
 }
