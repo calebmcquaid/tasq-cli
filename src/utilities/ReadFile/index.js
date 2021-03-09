@@ -7,7 +7,7 @@ function readTaskTextFile() {
             console.error(err)
             return
         }
-        return (data)
+        return data
     })
 }
 

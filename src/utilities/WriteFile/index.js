@@ -1,7 +1,7 @@
 const fs = require('fs')
-const {addNewLine} = require('../../shared/formatting')
+const {addNewLine} = require('../../shared/formatting');
 
-function createTaskTextFile(currentTasks) {
+function writeTaskTextFile(currentTasks) {
     fs.writeFile("./src/shared/tasks.txt", addNewLine(currentTasks), function(err) {
         if(err) {
             return console.log(err);
@@ -11,5 +11,5 @@ function createTaskTextFile(currentTasks) {
 }
 
 module.exports = {
-    createTaskTextFile
+    writeTaskTextFile
 }

@@ -26,7 +26,7 @@ describe("Formatting", () => {
 
     test("should have their own line", () => {
         const sameLineTodos = ["Todo 1", "todo 2", "todo 3"]
-        const oneLineTodos = ["Todo 1\n", "todo 2\n", "todo 3\n"]
+        const oneLineTodos = "Todo 1\ntodo 2\ntodo 3\n"
 
         const screen = addNewLine(sameLineTodos)
 

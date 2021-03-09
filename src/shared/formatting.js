@@ -16,7 +16,7 @@ function addNewLine(todos) {
     return Array.isArray(todos) ?
         todos.map((todo) => {
             return `${todo}\n`
-        })
+        }).join('')
     : todos
 }
 

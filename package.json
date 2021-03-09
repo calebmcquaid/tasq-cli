@@ -4,8 +4,7 @@
   "description": "A CLI todo app",
   "main": "src/index.js",
   "bin": {
-    "todo": "./src/index.js",
-    "add": "./src/components/AddTask/index.js"
+    "todo": "./src/index.js"
   },
   "scripts": {
     "test": "jest --watch",
