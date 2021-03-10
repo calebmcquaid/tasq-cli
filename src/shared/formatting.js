@@ -1,34 +1,25 @@
-
-
-function numberTodos(todos) {
-    return todos.map((todo, index) => {
-        return `${index + 1}. ${todo}`
-    }) 
-}
-
-function capitlizeTodos(todos) {
+function capitlizeTasks(todos) {
     return todos.map((todo) => {
         return todo.charAt(0).toUpperCase() + todo.substring(1)
     })
 }
 
-function addNewLine(todos) {
-    return Array.isArray(todos) ?
-        todos.map((todo, index) => {
-            return `${index + 1}. ${todo}\n`
+function formatTask(todos) {
+    const capitlizedTasks = capitlizeTasks(todos)
+    return Array.isArray(capitlizedTasks) ?
+        capitlizedTasks.map((task, index) => {
+            return `${index + 1}. ${task}\n`
         }).join('').trim('\n')
-    : todos
+    : capitlizedTasks
 }
 
-function stripTaskNumbers(todos) {
-    return todos.map((todo) => {
-        return todo.substring(3)
-    })
+function trimNumbers(data) {
+    const removedNumbers = data.replace(/([0-9]+.\s)/g, "")
+    return removedNumbers.split('\n')
 }
 
 module.exports = {
-    numberTodos,
-    capitlizeTodos,
-    addNewLine,
-    stripTaskNumbers
+    capitlizeTasks,
+    formatTask,
+    trimNumbers
 }
