@@ -1,19 +1,20 @@
 const {
     completeTask
 } = require('.')
-const { writeTaskTextFile } = require('../../utilities/WriteFile')
-
+const { readTaskTextFile } = require('../../utilities/ReadFile')
+jest.mock('../../utilities/ReadFile')
+jest.mock('../../utilities/WriteFile')
 
 
 describe("Complete a task", () => {
     test("should remove task from list of tasks", () => {
-        writeTaskTextFile('hello')
+        readTaskTextFile.mockImplementation(() => {return 'hello\ntask2\n'})
         const taskNumber = 1
-        const currentTasks = []
+        const newTasks = 'task2\n'
 
         const screen = completeTask(taskNumber)
 
-        expect(screen).toStrictEqual(currentTasks)
+        expect(screen).toStrictEqual(newTasks)
     })
 
 })

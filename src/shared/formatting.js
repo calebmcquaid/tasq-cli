@@ -14,9 +14,9 @@ function capitlizeTodos(todos) {
 
 function addNewLine(todos) {
     return Array.isArray(todos) ?
-        todos.map((todo) => {
-            return `${todo}\n`
-        }).join('')
+        todos.map((todo, index) => {
+            return `${index + 1}. ${todo}\n`
+        }).join('').trim('\n')
     : todos
 }
 

@@ -7,10 +7,16 @@ function readTaskTextFile() {
             console.error(err)
             return
         }
-        return data
+        return serializeText(data).trim()
     })
 }
 
+function serializeText(data) {
+    console.log('serialize' +data)
+    return data.replace(/([0-9]+.\s)/g, "").split('\n')
+}
+
 module.exports = {
-    readTaskTextFile
+    readTaskTextFile,
+    serializeText
 }

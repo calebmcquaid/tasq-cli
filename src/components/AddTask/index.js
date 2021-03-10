@@ -5,7 +5,7 @@ function addTask(task) {
     const otherTasks = readTaskTextFile()
     const splitTasks = otherTasks.split('\n')
     splitTasks.push(task)
-    return splitTasks
+    return splitTasks.join('\n')
 }
 
 module.exports = {

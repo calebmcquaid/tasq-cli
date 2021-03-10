@@ -8,7 +8,7 @@ describe("Share TaskList", () => {
 
     test("should create a .txt file with tasks", () => {
         fs.writeFile = jest.fn()
-        const currentTasks = ["1. Mow the lawn", "2. Todo"]
+        const currentTasks = "1. Mow the lawn\n 2. Todo"
 
         writeTaskTextFile(currentTasks)
 
