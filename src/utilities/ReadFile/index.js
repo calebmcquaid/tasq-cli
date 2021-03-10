@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const {trimNumbers} = require('../../shared/formatting')
 
 function readTaskTextFile() {
     return fs.readFileSync(path.resolve(__dirname, "../../shared/tasks.txt"), 'utf8', (err, data) => {
@@ -7,12 +8,11 @@ function readTaskTextFile() {
             console.error(err)
             return
         }
-        return serializeText(data).trim()
+        return trimNumbers(data).trim()
     })
 }
 
 function serializeText(data) {
-    console.log('serialize' +data)
     return data.replace(/([0-9]+.\s)/g, "").split('\n')
 }
 
