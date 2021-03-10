@@ -43,7 +43,7 @@ function returnToMainMenu(input) {
 }
 
 function navigation(flag) {
-    if(flag == "--help") {
+    if(flag === "--help") {
         return "Help Menu"
     } else if(flag.current) {
       return displayCurrentTasks()
@@ -55,7 +55,7 @@ function navigation(flag) {
         console.log(removedTask)
         return writeTaskTextFile(removedTask)
     } else {
-        return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task -help' for more information"
+        return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task --help' for more information"
     }
 }
 
