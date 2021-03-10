@@ -1,7 +1,7 @@
-const { readTaskTextFile } = require('../../utilities/ReadFile/index')
+const { readCurrentTaskTextFile } = require('../../utilities/ReadFile/index')
 
 function completeTask(taskNumber) {
-    const currentTasks = readTaskTextFile()
+    const currentTasks = readCurrentTaskTextFile()
     const task = taskNumber -1
     const splitTasks = currentTasks.split('\n')
     splitTasks.splice(task, 1)

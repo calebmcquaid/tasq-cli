@@ -1,7 +1,7 @@
-const { readTaskTextFile } = require('../../utilities/ReadFile')
+const { readCurrentTaskTextFile } = require('../../utilities/ReadFile')
 
 function displayCurrentTasks() {
-    return readTaskTextFile()
+    return readCurrentTaskTextFile()
 }
 
 module.exports = {
