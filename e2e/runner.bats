@@ -5,12 +5,17 @@ hello
 EOF
 )
 
+EMPTY_FILE=$(cat <<-EOF
+
+EOF
+)
+
 TEST_FILENAME="./e2e/test.txt"
 
 @test "Run application" {
   rm -rf $TEST_FILENAME
 
-  eval "add 'hello'"
+  eval "todo --add 'hello'"
   [[ "$status" -eq 0 ]]
 
   eval "ls ./src/shared/tasks.txt"
@@ -21,4 +26,7 @@ TEST_FILENAME="./e2e/test.txt"
 
   result="$(cat ./src/shared/tasks.txt)"
   [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
+
+  eval "todo --complete 1"
+  [[ "$status" -eq 0 ]]
 }
