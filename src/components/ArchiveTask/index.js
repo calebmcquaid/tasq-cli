@@ -1,6 +1,6 @@
-function archiveTask(completedTodos, input) {
-    completedTodos.splice(completedTodos[input - 1], 1)
-    return completedTodos
+function archiveTask(completedTasks, input) {
+    completedTasks.splice(completedTasks[input - 1], 1)
+    return completedTasks
 }
 
 module.exports = {

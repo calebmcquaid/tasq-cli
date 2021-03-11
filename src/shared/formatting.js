@@ -1,11 +1,11 @@
-function capitlizeTasks(todos) {
-    return todos.map((todo) => {
-        return todo.charAt(0).toUpperCase() + todo.substring(1)
+function capitlizeTasks(tasks) {
+    return tasks.map((task) => {
+        return task.charAt(0).toUpperCase() + task.substring(1)
     })
 }
 
-function formatTask(todos) {
-    const capitlizedTasks = capitlizeTasks(todos)
+function formatTask(tasks) {
+    const capitlizedTasks = capitlizeTasks(tasks)
     return Array.isArray(capitlizedTasks) ?
         capitlizedTasks.map((task, index) => {
             return `${index + 1}. ${task}\n`
@@ -14,7 +14,6 @@ function formatTask(todos) {
 }
 
 function trimNumbers(data) {
-    console.log(data)
     const removedNumbers = data.replace(/([0-9]+.\s)/g, "")
     return removedNumbers.split('\n')
 }

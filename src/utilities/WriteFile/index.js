@@ -13,7 +13,6 @@ function writeTaskTextFile(currentTasks) {
 }
 
 function writeCompletedTaskTextFile(completedTask) {
-    console.log('completed: ' + completedTask)
     const trimmedNumbers = trimNumbers(completedTask)
     fs.writeFile("./src/shared/completed.txt", formatTask(trimmedNumbers), function(err) {
         if(err) {
