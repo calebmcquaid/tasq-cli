@@ -9,7 +9,7 @@ jest.mock('./utilities/ReadFile')
 describe("Menu", () => {
     test("should display a help message when no flag is passed in", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const greeting = "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task --help' for more information"
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: todo --add 'new task'\n\nSee Current Tasks with --current: todo --current\n\nComplete Tasks with --complete and the task number: todo --complete 1\n\nEnter 'task --help' to see a list of the commands."
     // ACT:
         const screen = navigation('')
     // ASSERT:
@@ -34,10 +34,13 @@ describe("Menu", () => {
 
 describe('Help', () => {
     test("should return the help menu when given the proper flag", () => {
-        const flag = '--help'
-        const helpMenu = "Help Menu"
+        const argv = yargs('--help').option('--help', {
+            type: 'string',
+            default: 'bar'
+        }).help('').argv
+        const helpMenu = "  --add ' '\t\t Add a task\n  --current\t\t See current tasks\n  --complete ' '\t Complete a task with the corresponding number\n  --archive ' '\t\t Permanently delete completed task with the corresponding number"
 
-        const screen = navigation(flag)
+        const screen = navigation(argv)
 
         expect(screen).toBe(helpMenu)
     })
