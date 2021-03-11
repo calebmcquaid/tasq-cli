@@ -12,7 +12,18 @@ function writeTaskTextFile(currentTasks) {
     });
 }
 
+function writeCompletedTaskTextFile(completedTask) {
+    const trimmedNumbers = trimNumbers(completedTask)
+    fs.writeFile("./src/shared/completed.txt", formatTask(trimmedNumbers), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+    })
+}
+
 module.exports = {
     writeTaskTextFile,
+    writeCompletedTaskTextFile,
     trimNumbers
 }

@@ -1,17 +1,27 @@
 const fs = require('fs')
 const {
     writeTaskTextFile,
+    writeCompletedTaskTextFile,
     trimNumbers
 } = require('.')
 
 describe("Write taskList", () => {
-    test("should write to a .txt file with tasks", () => {
+    test("should write to a .txt file with current tasks", () => {
         fs.writeFile = jest.fn()
         const currentTasks = "1. Mow the lawn\n 2. Todo"
 
         writeTaskTextFile(currentTasks)
 
         expect(fs.writeFile).toBeCalledTimes(1) 
+    })
+
+    test("should write to a .txt file with completed tasks", () => {
+        fs.writeFile = jest.fn()
+        const completedTask = "1. new task"
+
+        writeCompletedTaskTextFile(completedTask)
+
+        expect(fs.writeFile).toBeCalledTimes(1)
     })
 })
 

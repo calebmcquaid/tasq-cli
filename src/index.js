@@ -3,8 +3,8 @@ const process = require('process')
 const { displayCurrentTasks } = require('./components/CurrentTasks');
 const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
 const {addTask} = require('./components/AddTask');
-const { writeTaskTextFile } = require('./utilities/WriteFile');
-const { completeTask } = require('./components/CompleteTask')
+const { writeTaskTextFile, writeCompletedTaskTextFile } = require('./utilities/WriteFile');
+const { completeTask, moveCompletedTask } = require('./components/CompleteTask')
 
 function navigation(flag) {
     if(flag === "--help") {
@@ -15,9 +15,10 @@ function navigation(flag) {
         const oldAndNewTasks = addTask(flag.add)
         return writeTaskTextFile(oldAndNewTasks)
     } else if(flag.complete) {
-        const removedTask = completeTask(flag.complete)
-        console.log(removedTask)
-        return writeTaskTextFile(removedTask)
+        const tasks = completeTask(flag.complete)
+        const completedTasks = moveCompletedTask(tasks.complete)
+        writeCompletedTaskTextFile(tasks.removedTask)
+        return writeTaskTextFile(tasks.current)
     } else {
         return "Welcome to the tasklist! Here's what you can do:\n1. Add a task\n2. See Current Tasks\n3. Complete Tasks\nEnter 'task --help' for more information"
     }
