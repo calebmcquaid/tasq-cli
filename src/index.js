@@ -10,7 +10,7 @@ const {displayCompletedTasks} = require('./components/CompletedTasks')
 
 function navigation(flag) {
     if(flag.help) {
-        return "  --add ' '\t\t Add a task\n  --current\t\t See current tasks\n  --complete ' '\t Complete a task with the corresponding number\n  --archive ' '\t\t Permanently delete completed task with the corresponding number"
+        return "  --add ' '\t\t Add a task\n  --current\t\t See current tasks\n  --delete ' '\t\t Delete a current task by entering the corresponding number\n  --complete ' '\t Complete a task with the corresponding number\n  --completed\t\t See the tasks you have completed\n  --archive ' '\t\t Permanently delete completed task with the corresponding number"
     } else if(flag.current) {
       return displayCurrentTasks()
     } else if(flag.add) {
@@ -29,7 +29,7 @@ function navigation(flag) {
     } else if(flag.archive) {
         archiveTask(flag.archive)
     } else {
-        return "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: todo --add 'new task'\n\nSee Current Tasks with --current: todo --current\n\nComplete Tasks with --complete and the task number: todo --complete 1\n\nEnter 'task --help' to see a list of the commands."
+        return "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: todo --add 'new task'\n\nSee current tasks with --current: todo --current\n\nDelete current tasks with --delete: todo --delete 1\n\nComplete tasks with --complete and the task number: todo --complete 1\n\nSee completed tasks with --completed: todo --completed\n\nEnter 'task --help' to see a list of the commands."
     }
 }
 
