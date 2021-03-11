@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 EXPECTED_FILE_CONTENTS=$(cat <<-EOF
-hello
+1. Hello
 EOF
 )
 
@@ -15,7 +15,7 @@ TEST_FILENAME="./e2e/test.txt"
 @test "Run application" {
   rm -rf $TEST_FILENAME
 
-  eval "todo --add 'hello'"
+  eval "todo --add '1. Hello'"
   [[ "$status" -eq 0 ]]
 
   eval "ls ./src/shared/tasks.txt"
@@ -23,6 +23,12 @@ TEST_FILENAME="./e2e/test.txt"
 
   eval "todo --current"
   [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
+
+  eval "todo --delete 1"
+  [[ "$result" == $EMPTY_FILE ]]
+
+  eval "todo --add '1. Hello'"
+  [[ "$status" -eq 0 ]]
 
   eval "todo --help"
   [[ "$status" -eq 0 ]]
