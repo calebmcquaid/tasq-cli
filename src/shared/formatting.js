@@ -14,6 +14,7 @@ function formatTask(todos) {
 }
 
 function trimNumbers(data) {
+    console.log(data)
     const removedNumbers = data.replace(/([0-9]+.\s)/g, "")
     return removedNumbers.split('\n')
 }

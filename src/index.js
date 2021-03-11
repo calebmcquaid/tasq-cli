@@ -16,8 +16,8 @@ function navigation(flag) {
         return writeTaskTextFile(oldAndNewTasks)
     } else if(flag.complete) {
         const tasks = completeTask(flag.complete)
-        const completedTasks = moveCompletedTask(tasks.complete)
-        writeCompletedTaskTextFile(tasks.removedTask)
+        moveCompletedTask(tasks.complete)
+        writeCompletedTaskTextFile(tasks.complete[0])
         return writeTaskTextFile(tasks.current)
     } else {
         return "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: todo --add 'new task'\n\nSee Current Tasks with --current: todo --current\n\nComplete Tasks with --complete and the task number: todo --complete 1\n\nEnter 'task --help' to see a list of the commands."

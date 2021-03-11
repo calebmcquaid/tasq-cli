@@ -24,6 +24,9 @@ TEST_FILENAME="./e2e/test.txt"
   eval "todo --current"
   [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
 
+  eval "todo --help"
+  [[ "$status" -eq 0 ]]
+
   result="$(cat ./src/shared/tasks.txt)"
   [[ "$result" == $EXPECTED_FILE_CONTENTS ]]
 
