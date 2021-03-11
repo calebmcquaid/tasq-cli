@@ -2,7 +2,7 @@ const { readCurrentTaskTextFile, readCompletedTaskTextFile } = require('../../ut
 
 function completeTask(taskNumber) {
     const currentTasks = readCurrentTaskTextFile()
-    const task = taskNumber -1
+    const task = taskNumber - 1
     const splitTasks = currentTasks.split('\n')
     const removedTask = splitTasks.splice(task, 1)
     return { current: splitTasks.join('\n'), complete: removedTask}

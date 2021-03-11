@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const process = require('process')
-const { displayCurrentTasks } = require('./components/CurrentTasks');
+const { displayCurrentTasks, deleteCurrentTask } = require('./components/CurrentTasks');
 const argv = require('yargs/yargs')(process.argv.slice(2)).help('').argv;
 const {addTask} = require('./components/AddTask');
 const { writeTaskTextFile, writeCompletedTaskTextFile } = require('./utilities/WriteFile');
@@ -16,6 +16,9 @@ function navigation(flag) {
     } else if(flag.add) {
         const oldAndNewTasks = addTask(flag.add)
         return writeTaskTextFile(oldAndNewTasks)
+    } else if(flag.delete) {
+        const tasks = deleteCurrentTask(flag.delete)
+        return writeTaskTextFile(tasks)
     } else if(flag.complete) {
         const tasks = completeTask(flag.complete)
         moveCompletedTask(tasks.complete)
