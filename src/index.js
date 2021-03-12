@@ -7,6 +7,7 @@ const { writeTaskTextFile, writeCompletedTaskTextFile } = require('./utilities/W
 const { completeTask, moveCompletedTask } = require('./components/CompleteTask');
 const { archiveTask } = require('./components/ArchiveTask');
 const {displayCompletedTasks} = require('./components/CompletedTasks')
+const {updateTask} = require('./components/UpdateTask')
 
 function navigation(flag) {
     if(flag.help) {
@@ -16,6 +17,10 @@ function navigation(flag) {
     } else if(flag.add) {
         const oldAndNewTasks = addTask(flag.add)
         return writeTaskTextFile(oldAndNewTasks)
+    } else if(flag.update) {
+        const updatedTasks = updateTask(flag.update, flag._[0])
+        console.log(updatedTasks)
+        return writeTaskTextFile(updatedTasks)
     } else if(flag.delete) {
         const tasks = deleteCurrentTask(flag.delete)
         return writeTaskTextFile(tasks)

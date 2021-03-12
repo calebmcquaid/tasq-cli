@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 EXPECTED_FILE_CONTENTS=$(cat <<-EOF
-1. Hello
+1. This is a new task
 EOF
 )
 
@@ -28,6 +28,9 @@ TEST_FILENAME="./e2e/test.txt"
   [[ "$result" == $EMPTY_FILE ]]
 
   eval "tasq --add '1. Hello'"
+  [[ "$status" -eq 0 ]]
+
+  eval "tasq --update 1 '1. This is a new task'"
   [[ "$status" -eq 0 ]]
 
   eval "tasq --help"
