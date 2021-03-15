@@ -34,7 +34,7 @@ TEST_FILENAME="./e2e/test.txt"
   eval "tasq --update 1 '1. This is a new task'"
   [[ "$status" -eq 0 ]]
 
-  eval "tasq --help"
+  eval "tasq --info"
   [[ "$status" -eq 0 ]]
 
   result="$(cat ./src/shared/tasks.txt)"

@@ -9,7 +9,7 @@ jest.mock('./utilities/ReadFile')
 describe("Menu", () => {
     test("should display a help message when no flag is passed in", () => {
     // ARRANGE: (mocks[node modules, "stand in", things I don't own (api calls)], spies, expected output) welcome message - variable, 
-        const greeting = "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: tasq --add 'new task'\n\nUpdate a current task with --update, the task number, and the new task: tasq --update 1 'updated task'\n\nSee current tasks with --current: tasq --current\n\nDelete current tasks with --delete: tasq --delete 1\n\nComplete tasks with --complete and the task number: tasq --complete 1\n\nSee completed tasks with --completed: tasq --completed\n\nEnter 'tasq --help' to see a list of the commands."
+        const greeting = "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: tasq --add 'new task'\n\nUpdate a current task with --update, the task number, and the new task: tasq --update 1 'updated task'\n\nSee current tasks with --current: tasq --current\n\nDelete current tasks with --delete: tasq --delete 1\n\nComplete tasks with --complete and the task number: tasq --complete 1\n\nSee completed tasks with --completed: tasq --completed\n\nEnter 'tasq --info' to see a list of the commands."
     // ACT:
         const screen = navigation('')
     // ASSERT:
@@ -34,7 +34,7 @@ describe("Menu", () => {
 
 describe('Help', () => {
     test("should return the help menu when given the proper flag", () => {
-        const argv = yargs('--help').option('--help', {
+        const argv = yargs('--info').option('--info', {
             type: 'string',
             default: 'bar'
         }).help('').argv
