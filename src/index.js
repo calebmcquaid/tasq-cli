@@ -31,7 +31,8 @@ function navigation(flag) {
     } else if(flag.completed) {
         return displayCompletedTasks()
     } else if(flag.archive) {
-        return archiveTask(flag.archive)
+        const newCompleted = archiveTask(flag.archive)
+        return writeCompletedTaskTextFile(newCompleted)
     } else {
         return "Welcome to the tasklist! Here's what you can do:\n\nAdd a task with --add and the task: tasq --add 'new task'\n\nUpdate a current task with --update, the task number, and the new task: tasq --update 1 'updated task'\n\nSee current tasks with --current: tasq --current\n\nDelete current tasks with --delete: tasq --delete 1\n\nComplete tasks with --complete and the task number: tasq --complete 1\n\nSee completed tasks with --completed: tasq --completed\n\nEnter 'tasq --info' to see a list of the commands."
     }
