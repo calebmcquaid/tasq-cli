@@ -1,13 +1,16 @@
 const {
     archiveTask,
 } = require('.')
+const { readCompletedTaskTextFile } = require('../../utilities/ReadFile')
+
+jest.mock('../../utilities/ReadFile')
 
 describe("Completed Tasks", () => {
     test("should completely delete tasks on archive", () => {
-        const completedTasks = ["1. Mow the lawn", "2. Task"]
+        readCompletedTaskTextFile.mockImplementation(() => {return "1. Mow the lawn\n2. Task"})
         const input = 2
 
-        const screen = archiveTask(completedTasks, input)
+        const screen = archiveTask(input)
 
         expect(screen.length).toBe(1)
     })
