@@ -14,6 +14,7 @@ TEST_FILENAME="./e2e/test.txt"
 
 @test "Run application" {
   rm -rf $TEST_FILENAME
+  touch "./src/shared/tasks.txt"
 
   eval "tasq --add '1. Hello'"
   [[ "$status" -eq 0 ]]
@@ -41,4 +42,6 @@ TEST_FILENAME="./e2e/test.txt"
 
   eval "tasq --complete 1"
   [[ "$status" -eq 0 ]]
+
+  rm -rf "./src/shared/tasks.txt"
 }
