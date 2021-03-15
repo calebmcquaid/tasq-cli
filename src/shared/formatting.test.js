@@ -25,7 +25,7 @@ describe("Formatting", () => {
 
     test("should strip numbers on completion", () => {
         const numberedTasks = "1. Task\n2. Tasks\n"
-        const unnumberedTasks = ["Task", "Tasks", ""]
+        const unnumberedTasks = ["Task", "Tasks"]
 
         const screen = trimNumbers(numberedTasks)
 

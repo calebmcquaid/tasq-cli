@@ -5,7 +5,8 @@ function completeTask(taskNumber) {
     const task = taskNumber - 1
     const splitTasks = currentTasks.split('\n')
     const removedTask = splitTasks.splice(task, 1)
-    return { current: splitTasks.join('\n'), complete: removedTask}
+    const joined = splitTasks.join('\n')
+    return { current: joined, complete: removedTask}
 }
 
 function moveCompletedTask(removedTask) {
