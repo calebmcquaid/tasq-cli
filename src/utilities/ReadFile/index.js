@@ -1,15 +1,24 @@
 const fs = require('fs')
 const { CURRENT_TASKS_DIRECTORY, COMPLETED_TASKS_DIRECTORY } = require('../../shared/constants')
-const {trimNumbers} = require('../../shared/formatting')
 
 function readCurrentTaskTextFile() {
-    const file = fs.readFileSync(CURRENT_TASKS_DIRECTORY, 'utf8')
-    return file
+    //write test
+    try {
+        const file = fs.readFileSync(CURRENT_TASKS_DIRECTORY, 'utf8')
+        return file
+    } catch(err) {
+        return ''
+    }
 }
 
 function readCompletedTaskTextFile() {
-    const file = fs.readFileSync(COMPLETED_TASKS_DIRECTORY, 'utf8')
-    return file
+    //write test
+    try {
+        const file = fs.readFileSync(COMPLETED_TASKS_DIRECTORY, 'utf8')
+        return file
+    } catch(err) {
+        return ''
+    }
 }
 
 function serializeText(data) {
