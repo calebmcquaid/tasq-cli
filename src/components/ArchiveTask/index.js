@@ -1,10 +1,10 @@
 const { readCompletedTaskTextFile } = require("../../utilities/ReadFile")
 
-function archiveTask(input) {
+function archiveTask(taskNumber) {
     const completedTasks = readCompletedTaskTextFile()
-    const splitTasks = completedTasks.split('\n')
-    const removedTask = splitTasks.splice(completedTasks[input - 1], 1)
-    return removedTask.join('\n')
+    const splitTasksArray = completedTasks.split('\n')
+    const removedTaskArray = splitTasksArray.splice(completedTasks[taskNumber - 1], 1)
+    return removedTaskArray.join('\n')
 }
 
 module.exports = {

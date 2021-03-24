@@ -2,18 +2,18 @@ const { readCurrentTaskTextFile, readCompletedTaskTextFile } = require('../../ut
 
 function completeTask(taskNumber) {
     const currentTasks = readCurrentTaskTextFile()
-    const task = taskNumber - 1
-    const splitTasks = currentTasks.split('\n')
-    const removedTask = splitTasks.splice(task, 1)
-    const joined = splitTasks.join('\n')
-    return { current: joined, complete: removedTask}
+    const taskToRemove = taskNumber - 1
+    const splitTasksArray = currentTasks.split('\n')
+    const removedTaskArray = splitTasksArray.splice(taskToRemove, 1)
+    const newCurrentTasks = splitTasksArray.join('\n')
+    return { current: newCurrentTasks, complete: removedTaskArray}
 }
 
 function moveCompletedTask(removedTask) {
     const completedTasks = readCompletedTaskTextFile()
-    const splitTasks = completedTasks.split('\n')
-    splitTasks.push(removedTask)
-    return splitTasks.join('\n')
+    const splitTasksArray = completedTasks.split('\n')
+    splitTasksArray.push(removedTask)
+    return splitTasksArray.join('\n')
 }
 
 module.exports = {

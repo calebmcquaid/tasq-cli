@@ -1,14 +1,15 @@
 
 
 class Task {
-    constructor(title, isArchived, isCompleted) {
+    constructor(title) {
         this.id = Task.incrementId();
         this.title = title;
-        this.isArchived = isArchived;
-        this.isCompleted = isCompleted;
+        this.isArchived = false;
+        this.isCompleted = false;
     }
-
+    
     static incrementId() {
+        let id = 0
         return id++
     }
 }

@@ -1,18 +1,9 @@
-const {
-    displayCurrentTasks,
-    deleteCurrentTask
-} = require('.')
-const { readCurrentTaskTextFile } = require('../../utilities/ReadFile')
+const {readCurrentTaskTextFile} = require('../../utilities/ReadFile/index')
+const {deleteCurrentTask} = require('./')
 
-jest.mock('../../utilities/ReadFile')
+jest.mock('../../utilities/ReadFile/index')
 
-describe("Current Tasks", () => {
-    test("should display current tasks", () => {
-        displayCurrentTasks()
-
-        expect(displayCurrentTasks).not.toBe(null)
-    })
-
+describe("Delete Task", () => {
     test("should delete current task when given the proper flag", () => {
         readCurrentTaskTextFile.mockImplementation(() => {return '1. Hello\n2. New task'})
         const expectedCurrentTasks = '2. New task'

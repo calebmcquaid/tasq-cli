@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 const {readCurrentTaskTextFile} = require('../../utilities/ReadFile/index')
+const {Task} = require('../../class/Task')
 
-function addTask(task) {
-    const otherTasks = readCurrentTaskTextFile()
-    const splitTasks = otherTasks.split('\n')
-    splitTasks.push(task)
-    return splitTasks.join('\n')
+function addTask(taskTitle) {
+    const currentTasks = readCurrentTaskTextFile()
+    const newTask = new Task(taskTitle)
+    const splitTasksArray = currentTasks.split('\n')
+    splitTasksArray.push(newTask)
+    return splitTasksArray.join('\n')
 }
 
 module.exports = {
