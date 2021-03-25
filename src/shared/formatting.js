@@ -19,8 +19,13 @@ function trimNumbers(data) {
     return dataWithoutNumbers.split('\n')
 }
 
+function formatJsonTask(task) {
+    return `${task.id}. ${task.title}`
+}
+
 module.exports = {
     capitlizeTasks,
     formatTask,
-    trimNumbers
+    trimNumbers,
+    formatJsonTask
 }

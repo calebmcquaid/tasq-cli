@@ -1,21 +1,20 @@
 const fs = require('fs')
 const { CURRENT_TASKS_DIRECTORY, COMPLETED_TASKS_DIRECTORY } = require('../../shared/constants')
 
-function readCurrentTaskTextFile() {
+function readCurrentTaskFile() {
     //write test
     try {
         const file = fs.readFileSync(CURRENT_TASKS_DIRECTORY, 'utf8')
-        return file
+        return JSON.parse(file)
     } catch(err) {
         return ''
     }
 }
 
-function readCompletedTaskTextFile() {
-    //write test
+function readCompletedTaskFile() {
     try {
         const file = fs.readFileSync(COMPLETED_TASKS_DIRECTORY, 'utf8')
-        return file
+        return JSON.parse(file)
     } catch(err) {
         return ''
     }
@@ -26,7 +25,7 @@ function serializeText(data) {
 }
 
 module.exports = {
-    readCurrentTaskTextFile,
-    readCompletedTaskTextFile,
+    readCurrentTaskFile,
+    readCompletedTaskFile,
     serializeText
 }

@@ -1,7 +1,7 @@
 const {
     addTask,
 } = require('.')
-const { readCurrentTaskTextFile } = require('../../utilities/ReadFile')
+const { readCurrentTaskFile } = require('../../utilities/ReadFile')
 
 jest.mock('../../utilities/ReadFile')
 jest.mock('../../utilities/WriteFile')
@@ -12,12 +12,9 @@ afterEach(() => {
 
 describe("Add Task", () => {
     test('should a task to the task list', () => {
-        readCurrentTaskTextFile.mockImplementation(() => {return 'task2\n'})
-        const taskTitle = 'hello'
-
+        readCurrentTaskFile.mockImplementation(() => {return 'task2\n'})
 
         const screen = addTask('hello')
-        console.log(screen)
 
         expect(screen.length).toBeGreaterThan(0)
     })

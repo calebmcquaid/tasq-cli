@@ -1,6 +1,6 @@
 const path = require('path')
 
-const CURRENT_TASKS_DIRECTORY = path.resolve(__dirname, "./tasks.txt")
+const CURRENT_TASKS_DIRECTORY = path.resolve(__dirname, "./tasks.json")
 const COMPLETED_TASKS_DIRECTORY = path.resolve(__dirname, "./completed.txt")
 
 module.exports = {
