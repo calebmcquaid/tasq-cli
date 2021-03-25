@@ -1,7 +1,7 @@
-const { readCompletedTaskTextFile } = require("../../utilities/ReadFile");
+const { readCompletedTaskFile } = require("../../utilities/ReadFile");
 
 function displayCompletedTasks() {
-    return readCompletedTaskTextFile()
+    return readCompletedTaskFile()
 }
 
 module.exports = {

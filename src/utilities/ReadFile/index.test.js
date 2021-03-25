@@ -1,8 +1,8 @@
 const { exception } = require('console')
 const fs = require('fs')
 const {
-    readCurrentTaskTextFile,
-    readCompletedTaskTextFile
+    readCurrentTaskFile,
+    readCompletedTaskFile
 } = require('.')
 
 describe("Read TaskList", () => {
@@ -13,7 +13,7 @@ describe("Read TaskList", () => {
     test("should throw exception on empty ", () => {
         fs.readFileSync = () => {throw new Error('This is an error')}
     
-        const screen = readCurrentTaskTextFile()
+        const screen = readCurrentTaskFile()
     
         expect(screen).toBe('')
 
@@ -22,7 +22,7 @@ describe("Read TaskList", () => {
     test("should throw exception on empty ", () => {
         fs.readFileSync = () => {throw new Error('This is an error')}
     
-        const screen = readCompletedTaskTextFile()
+        const screen = readCompletedTaskFile()
     
         expect(screen).toBe('')
 
@@ -31,7 +31,7 @@ describe("Read TaskList", () => {
     test("should read a .txt file with tasks", () => {
         fs.readFileSync = jest.fn()
 
-        readCurrentTaskTextFile()
+        readCurrentTaskFile()
 
         expect(fs.readFileSync).toBeCalledTimes(1)
     })
@@ -39,7 +39,7 @@ describe("Read TaskList", () => {
     test("should read a .txt file with completed tasks", () => {
         fs.readFileSync = jest.fn()
 
-        readCompletedTaskTextFile()
+        readCompletedTaskFile()
 
         expect(fs.readFileSync).toBeCalledTimes(1)
     })
