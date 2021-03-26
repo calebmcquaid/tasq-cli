@@ -1,8 +1,7 @@
 const fs = require('fs')
 const {
     writeTaskTextFile,
-    writeCompletedTaskTextFile,
-    trimNumbers
+    writeCompletedTaskTextFile
 } = require('.')
 
 describe("Write taskList", () => {
