@@ -1,8 +1,8 @@
 
 
 class Task {
-    constructor(title) {
-        this.id = Task.incrementId();
+    constructor(id, title) {
+        this.id = id;
         this.title = title;
         this.isArchived = false;
         this.isCompleted = false;

@@ -12,7 +12,16 @@ afterEach(() => {
 
 describe("Add Task", () => {
     test('should a task to the task list', () => {
-        readCurrentTaskFile.mockImplementation(() => {return 'task2\n'})
+        readCurrentTaskFile.mockImplementation(() => {return {
+        "tasks": [
+            {
+            "id": 1,
+            "title": "test",
+            "isArchived": false,
+            "isCompleted": false
+            },
+    ]
+    }})
 
         const screen = addTask('hello')
 

@@ -4,10 +4,10 @@ const {Task} = require('../../class/Task')
 
 function addTask(taskTitle) {
     const currentTasks = readCurrentTaskFile()
-    const newTask = new Task(taskTitle)
-    const splitTasksArray = currentTasks.split('\n')
-    splitTasksArray.push(newTask)
-    return splitTasksArray.join('\n')
+    const nextId = currentTasks.tasks.length
+    const newTask = new Task(nextId, taskTitle)
+    currentTasks.tasks.push(newTask)
+    return JSON.stringify(currentTasks)
 }
 
 module.exports = {
