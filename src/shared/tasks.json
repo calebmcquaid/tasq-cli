@@ -1,6 +1,50 @@
 {
-    "id": 1,
-    "title": "test",
-    "isArchived": false,
-    "isCompleted": false
+    "currentTasks": [
+        {
+            "id": 0,
+            "title": "hello",
+            "isArchived": false,
+            "isCompleted": false
+        },
+        {
+            "id": 1,
+            "title": "new",
+            "isArchived": false,
+            "isCompleted": false
+        },
+        {
+            "id": 2,
+            "title": "helloooooooooooooooooo",
+            "isArchived": false,
+            "isCompleted": false
+        },
+        {
+            "id": 3,
+            "title": "testing",
+            "isArchived": false,
+            "isCompleted": false
+        },
+        {
+            "id": 4,
+            "title": "testing",
+            "isArchived": false,
+            "isCompleted": false
+        }
+    ],
+    "completedTasks": [
+        {
+            "id": 0,
+            "title": "testing",
+            "isArchived": false,
+            "isCompleted": true
+        }
+    ],
+    "archivedTasks": [
+        {
+            "id": 0,
+            "title": "testing",
+            "isArchived": true,
+            "isCompleted": false
+        }
+    ]
 }
