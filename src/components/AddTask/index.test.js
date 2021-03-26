@@ -13,7 +13,7 @@ afterEach(() => {
 describe("Add Task", () => {
     test('should a task to the task list', () => {
         readCurrentTaskFile.mockImplementation(() => {return {
-        "tasks": [
+        "currentTasks": [
             {
             "id": 1,
             "title": "test",

@@ -3,11 +3,11 @@ const {readCurrentTaskFile} = require('../../utilities/ReadFile/index')
 const {Task} = require('../../class/Task')
 
 function addTask(taskTitle) {
-    const currentTasks = readCurrentTaskFile()
-    const nextId = currentTasks.tasks.length
+    const taskList = readCurrentTaskFile()
+    const nextId = taskList.currentTasks.length
     const newTask = new Task(nextId, taskTitle)
-    currentTasks.tasks.push(newTask)
-    return JSON.stringify(currentTasks)
+    taskList.currentTasks.push(newTask)
+    return JSON.stringify(taskList)
 }
 
 module.exports = {
