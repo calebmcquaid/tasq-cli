@@ -8,7 +8,7 @@ jest.mock('../../utilities/ReadFile')
 describe("Completed Tasks", () => {
     test("should completely delete tasks on archive", () => {
         readCompletedTaskFile.mockImplementation(() => {return {
-            "tasks": [
+            "currentTasks": [
                 {
                     "id": 1,
                     "title": "test",
