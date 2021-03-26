@@ -3,10 +3,9 @@ const { readCurrentTaskFile, readCompletedTaskFile } = require('../../utilities/
 function completeTask(taskNumber) {
     const currentTasks = readCurrentTaskFile()
     const taskToRemove = taskNumber - 1
-    const splitTasksArray = currentTasks.split('\n')
-    const removedTaskArray = splitTasksArray.splice(taskToRemove, 1)
-    const newCurrentTasks = splitTasksArray.join('\n')
-    return { current: newCurrentTasks, complete: removedTaskArray}
+    const removedTask = currentTasks.currentTasks.splice(taskToRemove, 1)
+    removedTask.isComplete = true
+    return currentTasks
 }
 
 function moveCompletedTask(removedTask) {

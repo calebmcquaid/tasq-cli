@@ -9,9 +9,30 @@ jest.mock('../../utilities/WriteFile')
 
 describe("Complete a task", () => {
     test("should remove task from list of tasks", () => {
-        readCurrentTaskFile.mockImplementation(() => {return 'hello\ntask2\n'})
+        readCurrentTaskFile.mockImplementation(() => {return {"currentTasks": [
+            {
+            "id": 1,
+            "title": "test",
+            "isArchived": false,
+            "isCompleted": false
+            },
+            {
+                "id": 2,
+                "title": "New",
+                "isArchived": false,
+                "isCompleted": false
+                }
+            ]
+        }})
         const taskNumber = 1
-        const newTasks = {"complete": ["hello"], "current": "task2\n"}
+        const newTasks = {"currentTasks": [
+            {
+            "id": 2,
+            "title": "New",
+            "isArchived": false,
+            "isCompleted": false
+            }
+        ]}
         
         const screen = completeTask(taskNumber)
         
