@@ -7,12 +7,39 @@ jest.mock('../../utilities/ReadFile')
 
 describe("Completed Tasks", () => {
     test("should completely delete tasks on archive", () => {
-        readCompletedTaskFile.mockImplementation(() => {return "1. Mow the lawn\n2. Task"})
-        const expectedResult = "1. Mow the lawn"
-        const input = 2
+        readCompletedTaskFile.mockImplementation(() => {return {
+            "tasks": [
+                {
+                    "id": 1,
+                    "title": "test",
+                    "isArchived": false,
+                    "isCompleted": false
+                    },
+                    {
+                        "id": 2,
+                        "title": "mow the lawn",
+                        "isArchived": false,
+                        "isCompleted": false
+                        },
+                    {
+                        "id": 3,
+                        "title": "This one should be gone",
+                        "isArchived": false,
+                        "isCompleted": false
+                        }
+            ]
+        }})
+        const expectedResult = [{"id": 1, "isArchived": false, "isCompleted": false, "title": "test"},
+        {
+            "id": 2,
+            "title": "mow the lawn",
+            "isArchived": false,
+            "isCompleted": false
+            }]
+        const input = 3
 
         const screen = archiveTask(input)
 
-        expect(screen).toBe(expectedResult)
+        expect(screen).toStrictEqual(expectedResult)
     })
 })
