@@ -27,7 +27,7 @@ describe("Add Task", () => {
 
         const screen = addTask('hello')
 
-        expect(screen.length).toBeGreaterThan(0)
+        expect(screen.currentTasks.length).toBe(2)
     })
 })
 

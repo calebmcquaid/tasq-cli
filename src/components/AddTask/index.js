@@ -7,7 +7,8 @@ function addTask(taskTitle) {
     const nextId = taskList.currentTasks.length
     const newTask = new Task(nextId, taskTitle)
     taskList.currentTasks.push(newTask)
-    return JSON.stringify(taskList)
+    console.log(taskList)
+    return taskList
 }
 
 module.exports = {

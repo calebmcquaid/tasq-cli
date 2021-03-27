@@ -3,7 +3,8 @@ const { CURRENT_TASKS_DIRECTORY, COMPLETED_TASKS_DIRECTORY } = require('../../sh
 
 
 function writeTaskTextFile(tasks) {
-    fs.writeFileSync(CURRENT_TASKS_DIRECTORY, tasks.currentTasks)
+    const formattedTasks = JSON.stringify(tasks)
+    fs.writeFileSync(CURRENT_TASKS_DIRECTORY, formattedTasks)
 }
 
 function writeCompletedTaskTextFile(tasks) {
