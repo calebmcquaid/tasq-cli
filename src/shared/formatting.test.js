@@ -1,7 +1,8 @@
 const {
     capitlizeTasks,
     formatTask,
-    trimNumbers
+    trimNumbers,
+    formatJsonTask
 } = require('./formatting')
 
 describe("Formatting", () => {
@@ -30,5 +31,25 @@ describe("Formatting", () => {
         const screen = trimNumbers(numberedTasks)
 
         expect(screen).toStrictEqual(unnumberedTasks)
+    })
+
+    test("should format the json task properly", () => {
+        const tasks = [{
+            "id": 0,
+            "title": "test",
+            "isArchived": false,
+            "isCompleted": false
+            },
+            {
+            "id": 1,
+            "title": "second task",
+            "isArchived": false,
+            "isCompleted": false
+            }]
+        const expectedFormat = "0. test\n\n1. second task\n"
+
+        const screen = formatJsonTask(tasks)
+
+        expect(screen).toBe(expectedFormat)
     })
 })

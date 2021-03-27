@@ -19,8 +19,11 @@ function trimNumbers(data) {
     return dataWithoutNumbers.split('\n')
 }
 
-function formatJsonTask(task) {
-    return `${task.id}. ${task.title}`
+function formatJsonTask(tasks) {
+    const formattedTaskList = tasks.map((task) => {
+        return `${task.id}. ${task.title}\n`
+    })
+    return formattedTaskList.join('\n')
 }
 
 module.exports = {

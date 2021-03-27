@@ -19,17 +19,17 @@ describe("Menu", () => {
     })
 
     test("should display current tasks when given proper flag", () => {
-        readCurrentTaskFile.mockImplementation(() => {return { 
+        readCurrentTaskFile.mockImplementation(() => {return [{ 
         "id": 1,
         "title": "test",
         "isArchived": false,
         "isCompleted": false
-    }})
+    }]})
         const argv = yargs('--current').option('current', {
             type: 'string',
             default: 'bar'
         }).argv
-        const currentTasks = "1. test"
+        const currentTasks = "1. test\n"
 
         const screen = navigation(argv)
 
