@@ -1,6 +1,5 @@
 const {
-    completeTask,
-    moveCompletedTask
+    completeTask
 } = require('.')
 const { readCurrentTaskFile, readCompletedTaskFile } = require('../../utilities/ReadFile')
 jest.mock('../../utilities/ReadFile')
@@ -22,31 +21,31 @@ describe("Complete a task", () => {
                 "isArchived": false,
                 "isCompleted": false
                 }
-            ]
+            ],
+            "completedTasks": []
         }})
         const taskNumber = 1
-        const newTasks = {"currentTasks": [
+        const newCurrentTasks = [
             {
             "id": 2,
             "title": "New",
             "isArchived": false,
             "isCompleted": false
             }
-        ]}
+        ]
+        const completedTasks = [
+            {
+            "id": 1,
+            "title": "test",
+            "isArchived": false,
+            "isCompleted": true
+            }
+        ]
         
         const screen = completeTask(taskNumber)
+        console.log(screen)
         
-        expect(screen).toStrictEqual(newTasks)
-    })
-    
-    test("should move completed task to new file", () => {
-        readCurrentTaskFile.mockImplementation(() => {return 'hello\n'})
-        readCompletedTaskFile.mockImplementation(() => {return 'task 1\n'})
-        const tasks = {"complete": "hello", "current": "task2\n"}
-        const completedTasks = 'task 1\n\nhello'
-
-        const screen = moveCompletedTask(tasks.complete)
-
-        expect(screen).toBe(completedTasks)
+        expect(screen.currentTasks).toStrictEqual(newCurrentTasks)
+        expect(screen.completedTasks).toStrictEqual(completedTasks)
     })
 })
