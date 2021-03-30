@@ -4,10 +4,8 @@ const {Task} = require('../../class/Task')
 
 function addTask(taskTitle) {
     const taskList = readCurrentTaskFile()
-    const nextId = taskList.currentTasks.length
-    const newTask = new Task(nextId, taskTitle)
+    const newTask = new Task(taskTitle)
     taskList.currentTasks.push(newTask)
-    console.log(taskList)
     return taskList
 }
 
