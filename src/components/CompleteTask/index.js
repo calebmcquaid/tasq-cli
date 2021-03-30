@@ -4,11 +4,17 @@ function completeTask(taskNumber) {
     const currentTasks = readCurrentTaskFile()
     const taskToRemove = taskNumber - 1
     const removedTask = currentTasks.currentTasks.splice(taskToRemove, 1)
-    removedTask[0].isCompleted = true
-    currentTasks.completedTasks.push(removedTask[0])
+    moveCompletedTask(removedTask[0])
     return currentTasks
 }
 
+function moveCompletedTask(task) {
+    const tasks = readCurrentTaskFile()
+    task.isCompleted = true
+    return tasks.completedTasks.push(task)
+}
+
 module.exports = {
-    completeTask
+    completeTask,
+    moveCompletedTask
 }
