@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 const process = require('process')
-const { displayTasks, deleteCurrentTask } = require('./components/DisplayTasks');
+const { displayTasks } = require('./components/DisplayTasks');
 const argv = require('yargs/yargs')(process.argv.slice(2)).help().argv;
 const {addTask} = require('./components/AddTask');
 const { writeTaskTextFile, writeCompletedTaskTextFile } = require('./utilities/WriteFile');
 const { completeTask, moveCompletedTask } = require('./components/CompleteTask');
 const { archiveTask } = require('./components/ArchiveTask');
-const {displayCompletedTasks} = require('./components/DisplayCompletedTasks')
 const {updateTask} = require('./components/UpdateTask')
 
 function navigation(flag) {
