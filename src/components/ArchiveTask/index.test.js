@@ -2,13 +2,13 @@ const {
     archiveTask,
     moveArchivedTask
 } = require('.')
-const { readCurrentTaskFile } = require('../../utilities/ReadFile')
+const { readTaskFile } = require('../../utilities/ReadFile')
 
 jest.mock('../../utilities/ReadFile')
 
 describe("Completed Tasks", () => {
     test("should completely delete tasks on archive", () => {
-        readCurrentTaskFile.mockImplementation(() => {return {
+        readTaskFile.mockImplementation(() => {return {
             "completedTasks": [
                 {
                     "id": 1,
@@ -46,7 +46,7 @@ describe("Completed Tasks", () => {
     })
 
     test("should move a completed task to archived", () => {
-        readCurrentTaskFile.mockImplementation(() => {return {"completedTasks": [
+        readTaskFile.mockImplementation(() => {return {"completedTasks": [
             {
             "id": 1,
             "title": "test",

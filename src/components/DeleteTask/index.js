@@ -1,7 +1,7 @@
-const { readCurrentTaskFile } = require('../../utilities/ReadFile');
+const { readTaskFile } = require('../../utilities/ReadFile');
 
 function deleteCurrentTask(taskNumber) {
-    const tasks = readCurrentTaskFile();
+    const tasks = readTaskFile();
     tasks.currentTasks.splice(taskNumber - 1, 1);
     return tasks
 }

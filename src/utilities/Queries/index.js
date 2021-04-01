@@ -1,14 +1,14 @@
-const {readCurrentTaskFile} = require('../ReadFile')
+const {readTaskFile} = require('../ReadFile')
 
 function findById(id) {
-    const tasks = readCurrentTaskFile()
+    const tasks = readTaskFile()
     return tasks.currentTasks.filter((task) => {
         return task.id === id
     })[0]
 }
 
 function findByTitle(title) {
-    const tasks = readCurrentTaskFile()
+    const tasks = readTaskFile()
     return tasks.currentTasks.filter((task) => {
         return task.title === title
     })[0]

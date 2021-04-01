@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { CURRENT_TASKS_DIRECTORY } = require('../../shared/constants')
 
-function readCurrentTaskFile() {
+function readTaskFile() {
     //write test
     try {
         const file = fs.readFileSync(CURRENT_TASKS_DIRECTORY, 'utf8')
@@ -16,6 +16,6 @@ function serializeText(data) {
 }
 
 module.exports = {
-    readCurrentTaskFile,
+    readTaskFile,
     serializeText
 }

@@ -2,7 +2,7 @@ const {
     completeTask,
     moveCompletedTask
 } = require('.')
-const { readCurrentTaskFile } = require('../../utilities/ReadFile')
+const { readTaskFile } = require('../../utilities/ReadFile')
 jest.mock('../../utilities/ReadFile')
 
 // beforeEach(() => jest.clearAllMocks() )
@@ -10,7 +10,7 @@ jest.mock('../../utilities/ReadFile')
 
 describe("Complete a task", () => {
     test("should remove task from list of tasks", () => {
-        readCurrentTaskFile.mockImplementation(() => {return {"currentTasks": [
+        readTaskFile.mockImplementation(() => {return {"currentTasks": [
             {
             "id": 1,
             "title": "test",

@@ -1,8 +1,8 @@
-const { readCurrentTaskFile } = require('../../utilities/ReadFile')
+const { readTaskFile } = require('../../utilities/ReadFile')
 const {formatJsonTask} = require('../../shared/formatting')
 
 function displayTasks(tasks) {
-    const currentTasks = readCurrentTaskFile()
+    const currentTasks = readTaskFile()
     return formatJsonTask(currentTasks[tasks])
 }
 

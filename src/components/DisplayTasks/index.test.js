@@ -1,13 +1,13 @@
 const {
     displayTasks,
 } = require('.')
-const { readCurrentTaskFile } = require('../../utilities/ReadFile')
+const { readTaskFile } = require('../../utilities/ReadFile')
 
 jest.mock('../../utilities/ReadFile')
 
 describe("Display Tasks", () => {
     test("should display current tasks", () => {
-        const test = readCurrentTaskFile.mockImplementation(() => { return {
+        const test = readTaskFile.mockImplementation(() => { return {
         "currentTasks": [
             {
             "id": 0,

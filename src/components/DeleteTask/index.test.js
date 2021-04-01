@@ -1,11 +1,11 @@
-const {readCurrentTaskFile} = require('../../utilities/ReadFile/index')
+const {readTaskFile} = require('../../utilities/ReadFile/index')
 const {deleteCurrentTask} = require('./')
 
 jest.mock('../../utilities/ReadFile/index')
 
 describe("Delete Task", () => {
     test("should delete current task when given the proper flag", () => {
-        readCurrentTaskFile.mockImplementation(() => {
+        readTaskFile.mockImplementation(() => {
             return {
                 "currentTasks": [
                     {

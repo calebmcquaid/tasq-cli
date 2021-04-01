@@ -2,7 +2,7 @@ const {
     navigation
 } = require('./')
 
-const {readCurrentTaskFile} = require('./utilities/ReadFile')
+const {readTaskFile} = require('./utilities/ReadFile')
 const yargs = require('yargs/yargs')
 jest.mock('./utilities/ReadFile')
 
@@ -19,7 +19,7 @@ describe("Menu", () => {
     })
 
     test("should display current tasks when given proper flag", () => {
-        readCurrentTaskFile.mockImplementation(() => {return {
+        readTaskFile.mockImplementation(() => {return {
             "currentTasks": [
                 { 
                     "id": 1,

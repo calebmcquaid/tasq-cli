@@ -1,7 +1,7 @@
-const { readCurrentTaskFile } = require("../../utilities/ReadFile")
+const { readTaskFile } = require("../../utilities/ReadFile")
 
 function archiveTask(taskNumber) {
-    const completedTasks = readCurrentTaskFile()
+    const completedTasks = readTaskFile()
     const taskToArchive = taskNumber - 1
     const removedTask = completedTasks.completedTasks.splice(taskToArchive, 1)
     moveArchivedTask(removedTask)
@@ -9,7 +9,7 @@ function archiveTask(taskNumber) {
 }
 
 function moveArchivedTask(task) {
-    const tasks = readCurrentTaskFile()
+    const tasks = readTaskFile()
     task.isArchived = true
     return tasks.archivedTasks.push(task)
 }

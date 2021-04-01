@@ -1,7 +1,7 @@
-const { readCurrentTaskFile } = require("../../utilities/ReadFile");
+const { readTaskFile } = require("../../utilities/ReadFile");
 
 function updateTask(taskNumber, updatedTask) {
-    const currentTasks = readCurrentTaskFile()
+    const currentTasks = readTaskFile()
     const task = taskNumber - 1
     let taskToUpdate = currentTasks.currentTasks.splice(task, 1)[0]
     taskToUpdate.title = updatedTask

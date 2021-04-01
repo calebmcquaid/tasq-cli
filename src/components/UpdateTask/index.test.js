@@ -1,11 +1,11 @@
 const {updateTask} = require('.')
-const { readCurrentTaskFile } = require('../../utilities/ReadFile')
+const { readTaskFile } = require('../../utilities/ReadFile')
 
 jest.mock('../../utilities/ReadFile')
 
 describe("Update task", () => {
     test("should update the task when given the proper flag", () => {
-        readCurrentTaskFile.mockImplementation(() => {
+        readTaskFile.mockImplementation(() => {
             return {
                 "currentTasks": [
                     {

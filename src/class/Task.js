@@ -1,4 +1,4 @@
-const {readCurrentTaskFile} = require('../utilities/ReadFile')
+const {readTaskFile} = require('../utilities/ReadFile')
 
 class Task {
     constructor(title) {
@@ -9,7 +9,7 @@ class Task {
     }
 
     incrementId() {
-        const tasks = readCurrentTaskFile()
+        const tasks = readTaskFile()
         return tasks.currentTasks.length
     }
 }

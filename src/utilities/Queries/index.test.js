@@ -1,4 +1,4 @@
-const {readCurrentTaskFile} = require('../ReadFile')
+const {readTaskFile} = require('../ReadFile')
 const {findById, findByTitle} = require('./index')
 
 jest.mock('../ReadFile/index')
@@ -6,7 +6,7 @@ jest.mock('../ReadFile/index')
 describe("Query", () => {
     test("should find a task by id", () => {
         const id = 1
-        readCurrentTaskFile.mockImplementation(() => {return {
+        readTaskFile.mockImplementation(() => {return {
             "currentTasks": [
                     {
                         "id": 0,
@@ -36,7 +36,7 @@ describe("Query", () => {
 
     test("should find task by title", () => {
         const title = "New task"
-        readCurrentTaskFile.mockImplementation(() => {return {
+        readTaskFile.mockImplementation(() => {return {
             "currentTasks": [
                     {
                         "id": 0,
