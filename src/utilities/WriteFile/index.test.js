@@ -1,7 +1,6 @@
 const fs = require('fs')
 const {
-    writeTaskTextFile,
-    writeCompletedTaskTextFile
+    writeTaskTextFile
 } = require('.')
 
 describe("Write taskList", () => {
@@ -12,14 +11,5 @@ describe("Write taskList", () => {
         writeTaskTextFile(currentTasks)
 
         expect(fs.writeFileSync).toBeCalledTimes(1) 
-    })
-
-    test("should write to a .txt file with completed tasks", () => {
-        fs.writeFileSync = jest.fn()
-        const completedTask = "1. new task"
-
-        writeCompletedTaskTextFile(completedTask)
-
-        expect(fs.writeFileSync).toBeCalledTimes(1)
     })
 })
