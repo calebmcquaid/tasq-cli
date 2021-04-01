@@ -2,3 +2,4 @@
 *.env
 *.md
 *.txt
+/src/shared/tasks.json
