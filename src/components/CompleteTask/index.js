@@ -1,17 +1,16 @@
 const { readCurrentTaskFile } = require('../../utilities/ReadFile/index')
 
 function completeTask(taskNumber) {
-    const currentTasks = readCurrentTaskFile()
+    const tasks = readCurrentTaskFile()
     const taskToRemove = taskNumber - 1
-    const removedTask = currentTasks.currentTasks.splice(taskToRemove, 1)
-    moveCompletedTask(removedTask[0])
-    return currentTasks
+    const removedTask = tasks.currentTasks.splice(taskToRemove, 1)[0]
+    return moveCompletedTask(removedTask, tasks)
 }
 
-function moveCompletedTask(task) {
-    const tasks = readCurrentTaskFile()
+function moveCompletedTask(task, taskList) {
     task.isCompleted = true
-    return tasks.completedTasks.push(task)
+    taskList.completedTasks.push(task)
+    return taskList
 }
 
 module.exports = {
