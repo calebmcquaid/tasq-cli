@@ -2,7 +2,7 @@ const {readCurrentTaskFile} = require('../utilities/ReadFile')
 
 class Task {
     constructor(title) {
-        this.id = this.incrementId;
+        this.id = this.incrementId();
         this.title = title;
         this.isArchived = false;
         this.isCompleted = false;

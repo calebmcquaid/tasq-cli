@@ -4,9 +4,10 @@ const { displayTasks } = require('./components/DisplayTasks');
 const argv = require('yargs/yargs')(process.argv.slice(2)).help().argv;
 const {addTask} = require('./components/AddTask');
 const { writeTaskTextFile, writeCompletedTaskTextFile } = require('./utilities/WriteFile');
-const { completeTask, moveCompletedTask } = require('./components/CompleteTask');
+const { completeTask } = require('./components/CompleteTask');
 const { archiveTask } = require('./components/ArchiveTask');
-const {updateTask} = require('./components/UpdateTask')
+const { updateTask } = require('./components/UpdateTask')
+const { deleteCurrentTask } = require('./components/DeleteTask')
 
 function navigation(flag) {
     if(flag.info) {
@@ -24,9 +25,7 @@ function navigation(flag) {
         return writeTaskTextFile(tasks)
     } else if(flag.complete) {
         const tasks = completeTask(flag.complete)
-        moveCompletedTask(tasks.complete)
-        writeCompletedTaskTextFile(tasks.complete[0])
-        return writeTaskTextFile(tasks.current)
+        return writeTaskTextFile(tasks)
     } else if(flag.completed) {
         return displayTasks('completedTasks')
     } else if(flag.archive) {
