@@ -23,12 +23,12 @@ describe("Delete Task", () => {
                 ]
             }
         })
-        const expectedCurrentTasks = [{
+        const expectedCurrentTasks = {"currentTasks": [{
             "id": 1,
             "title": "New task",
             "isArchived": false,
             "isCompleted": false
-        }]
+        }]}
         const taskNumber = 1
 
         const screen = deleteCurrentTask(taskNumber)
